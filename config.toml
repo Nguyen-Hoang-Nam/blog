@@ -1,0 +1,18 @@
+baseURL = ''
+languageCode = 'en-us'
+title = 'DevOT blog'
+
+theme = 'devot'
+
+[menu]
+    [[menu.main]]
+        name = "Posts"
+        pre = "home"
+        url = "/"
+        weight = 1
+    [[menu.main]]
+        name = "Tags"
+        pre = "tag"
+        url = "/tags/"
+        weight = 3
+

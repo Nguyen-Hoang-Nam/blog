@@ -1,0 +1,22 @@
+{{ define "main" }}
+<div class="main">
+    <div class="main-container">
+        {{- partial "sidebar.html" . -}}
+        <div class="content">
+            {{ range ( where .Site.RegularPages "Type" "posts" ) }}
+            <div class="post">
+                <h3 class="post-title">
+                    <a class="post-title-link" href="{{ .RelPermalink }}">
+                        {{ .Title }}
+                    </a>
+                </h3>
+                {{ partial "metadata.html" . }}
+                <a class="post-summary" href="{{ .RelPermalink }}">
+                    <p>{{ .Summary }}</p>
+                </a>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}
