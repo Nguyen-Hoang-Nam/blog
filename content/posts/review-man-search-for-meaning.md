@@ -1,7 +1,7 @@
 ---
 title: "Review Man's Search for Meaning"
 date: 2021-10-21T21:10:52+07:00
-draft: true
+draft: false
 tags: ["review", "book"]
 image: "/images/man-search-for-meaning.jpg"
 creditAuthor: "Sasha  Freemind"
