@@ -45,6 +45,8 @@ tù nhân và đứng từ xa nhìn tác giả vậy, và trong suốt chương
 1 tác giả cũng không hoặc rất ít tìm hiểu về quá khứ của
 những bạn tù khác.
 
+![Some image](/images/man-search-for-meaning.jpg "Caption here")
+
 Phần đầu của chương 1 cũng cho thấy một sự lạc lõng của tác
 giả, chủ ngữ trong câu đa số là tác giả làm cài này, làm cái
 kia, thấy cái này thấy cái kia. Không có sự liên khác với
@@ -53,6 +55,16 @@ với tác giả, nhưng không vì những điều này mà tác phẩm thể
 hiện sự tiêu cực. Đây là một điều rất thú vị, tác giả luôn
 giữ một giọng văn không thiên vị, không tiêu cực nó giúp ta
 cảm thấy tin tưởng được những gì tác giả đang viết.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("->")
+}
+```
 
 Phần sau thì rõ ràng là tác giả có những sự liên kết rõ ràng
 với các bạn tù khác, Capo với cả Dr. J, và từ đây mở ra những

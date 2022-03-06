@@ -1,3 +1,15 @@
+@font-face {
+    font-family: FiraCode;
+    src: url("../fonts/FiraCode-Regular.woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: FiraCode;
+    src: url("../fonts/FiraCode-Bold.woff2");
+    font-weight: 700;
+}
+
 html {
     height: 100%;
 }
@@ -13,7 +25,7 @@ body {
 
 .header {
     width: 100%;
-    max-height: 500px;
+    max-height: 600px;
     overflow-y: hidden;
 }
 
@@ -25,10 +37,13 @@ body {
     text-align: center;
     margin-top: 10xp;
     margin-bottom: 0;
+    font-family: "Lora", serif;
+    color: rgb(108, 111, 114);
 }
 
 .header-credit a {
     text-decoration: none;
+    color: rgb(228, 67, 39);
 }
 
 .main {
@@ -52,6 +67,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
 }
 
 .sidebar a {
@@ -80,20 +97,78 @@ body {
     width: 100%;
 }
 
+.content {
+    font-family: "Lora", serif;
+}
+
 .content p {
-    line-height: 30px;
-    font-size: 20px;
+    line-height: 32.3px;
+    font-size: 17px;
     margin: 30px 0;
+    color: rgb(108, 111, 114);
+}
+
+.content p:first-of-type::first-letter {
+    font-size: 3.57rem;
+    line-height: 1em;
+    font-weight: 700;
+    margin: 0.1em 0.35em 0 0;
+    color: rgb(18, 20, 24);
+    float: left;
+}
+
+h2 + p::first-letter {
+    font-size: 3.57rem;
+    line-height: 1em;
+    font-weight: 700;
+    margin: 0.1em 0.35em 0 0;
+    color: rgb(18, 20, 24);
+    float: left;
 }
 
 .content h1 {
+    margin-top: 0;
     font-size: 50px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: rgb(18, 20, 24);
 }
 
 .content h2 {
     font-size: 30px;
     margin-top: 40px;
     margin-bottom: 40px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: rgb(18, 20, 24);
+}
+
+.content time {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: rgb(108, 111, 114);
+}
+
+.content figure {
+    margin: 0;
+}
+
+.content figcaption {
+    text-align: center;
+    color: rgb(108, 111, 114);
+    font-family: "Lora", serif;
+}
+
+.content pre {
+    padding: 20px;
+}
+
+.content img {
+    width: 100%;
+}
+
+code {
+    font-family: "FiraCode";
 }
 
 .post {
@@ -103,11 +178,16 @@ body {
 .post-title {
     font-size: 50px;
     margin-top: 0;
+    margin-bottom: 33.5px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
 }
 
 .post-title-link {
     text-decoration: none;
     color: black;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
 }
 
 .post-summary {
@@ -116,6 +196,9 @@ body {
 }
 
 .footer {
-    padding: 5px;
+    padding: 5px 0 5px 15px;
     border-top: 1px solid #eee;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    color: rgb(108, 111, 114);
 }
