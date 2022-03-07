@@ -1,43 +1,43 @@
 ---
-title: "Series Microservices: Bắt đầu với Microservice"
+title: "Series Microservices: Bắt đầu với Microservices"
 date: 2022-03-06T12:51:24+07:00
 draft: true
-tags: ["microservice"]
-image: "/images/man-search-for-meaning.jpg"
-creditAuthor: "Sasha  Freemind"
-creditAuthorLink: "https://unsplash.com/@sashafreemind?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-creditUnsplash: "https://unsplash.com/s/photos/meaning?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+tags: ["microservices"]
+image: "/images/series-microservices-beginning-microservices.jpg"
+creditAuthor: "JOHN TOWNER"
+creditAuthorLink: "https://unsplash.com/@heytowner?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+creditUnsplash: "https://unsplash.com/s/photos/forest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 ---
 
-Có lẽ Microservice không còn là một thuật ngữ quá mới đối với Dev nữa khi mà ngày càng nhiều Framework, 
+Có lẽ Microservices không còn là một thuật ngữ quá mới đối với Dev nữa khi mà ngày càng nhiều Framework,
 Platform hỗ trợ kiến trúc này. Vì vậy, để các bạn mới bắt đầu với kiến trúc này có thể tìm hiểu về nó,
 mình quyết định bắt đầu 1 series nhỏ giới thiệu qua những khái niệm cũng như những thứ hay hó khác.
 Nếu bạn đã sẵn sàng thì chúng ta bắt đầu nào.
 
-## Microservice là gì nhỉ?
+## Microservices là gì nhỉ?
 
 Khác với những kiến trúc hay những Design Pattern khi mà nó thường bao hàm cách để có thể tự mình implement
-lại được. Microservice có vẻ mập mờ hơn, điểm chung lớn nhất của những người nói họ thiết kế hệ thống theo
-Microservice là hệ thống giồng rất nhiều Project và chúng dùng api để giao tiếp với nhau.
+lại được. Microservices có vẻ mập mờ hơn, điểm chung lớn nhất của những người nói họ thiết kế hệ thống theo
+Microservices là hệ thống giồng rất nhiều Project và chúng dùng api để giao tiếp với nhau.
 
 Sự mập mờ còn từ chữ "micro" nữa, từ này thể hiện là chúng ta cần chia hệ thống thành rất nhiều phần nhỏ,
 nhưng nhỏ tới thế nào thì lại không rõ lắm. Chia nhỏ tới từng Function hay từng Class thì có vẻ không ổn lắm,
-vậy kiến trúc MVC cũng chia hệ thống thành 3 phần nhỏ hơn thì có thể gọi là Microservice không nhỉ?
+vậy kiến trúc MVC cũng chia hệ thống thành 3 phần nhỏ hơn thì có thể gọi là Microservices không nhỉ?
 
-Thậm chí nguồn gốc của kiến trúc Microservice cũng rất mập mờ. Khi mà nhiều công ty lớn về lập trình cho
+Thậm chí nguồn gốc của kiến trúc Microservices cũng rất mập mờ. Khi mà nhiều công ty lớn về lập trình cho
 rằng họ đã sử dụng kiến trúc này từ vài thập kỉ về trước, nếu như vậy xem chừng kiến trúc này cũng không
 hẳn là đột phá lắm. Vậy lý do nào khiến nó được chú ý ở thời điểm hiện tại như vậy?
 
-Xem chừng dù chưa trả lời được câu hỏi Microservice là gì thì chúng ta đã gặp hàng đống vấn đề khác rồi.
-Vì vậy mình nghĩ cách tiếp cận tốt nhất với Microservice là xem những ông lớn trong ngành đang dùng nó
+Xem chừng dù chưa trả lời được câu hỏi Microservices là gì thì chúng ta đã gặp hàng đống vấn đề khác rồi.
+Vì vậy mình nghĩ cách tiếp cận tốt nhất với Microservices là xem những ông lớn trong ngành đang dùng nó
 như thế nào. Nổi tiếng nhất có thể kể tới ông lớn Netflix, không chỉ có những Series phim hay, công ty
-này cũng dóng góp cho cộng đồng nhiều những Frameword để implement các service trong kiến trúc Microservice.
+này cũng dóng góp cho cộng đồng nhiều những Frameword để implement các service trong kiến trúc Microservices.
 Họ còn thuyết trình về hệ thống đó nữa, và mình recommend bạn nên xem qua nó để hình dung sơ qua
 vấn đề mà Netflix đã giải quyết với kiến trúc Microservervice.
 
 {{< youtube CZ3wIuvmHeM >}}
 
-Thì như ta thấy các Service trong kiến trúc Microservice này độc lập với nhau, chúng gọi nhau qua các
+Thì như ta thấy các Service trong kiến trúc Microservices này độc lập với nhau, chúng gọi nhau qua các
 API là các protocol như HTTP, GRPC, Thift, Websocket hay những cơ chế Pub/Sub. Các Service này cũng
 có tính đóng gói để dễ dàng dóng thành các Container riêng. Các Service này cũng xử lý logic, business
 hoặc trung chuyển dữ liệu, chúng có thể sử dụng DB hoặc không.
@@ -47,7 +47,7 @@ Thì với cách hiểu ở trên thì rõ ràng không hề có 1 chỗ nào n�
 
 ## Chuẩn bị nguyên liệu chính
 
-Để làm gỏi món Microservice này, thì mình nghĩ một số nguyên liệu sau đây có thể sẽ rất là cần thiết.
+Để làm gỏi món Microservices này, thì mình nghĩ một số nguyên liệu sau đây có thể sẽ rất là cần thiết.
 Tất nhiên là bạn có thể không cần dùng hết tất cả nếu hệ thống của bạn vẫn vận hành ổn.
 
 ### Gateway
@@ -68,7 +68,7 @@ sau khi Scale. Để giải quyết vấn đề này thì ta thường sẽ sử
 nhiệm vụ chính của Service này là lưu thông tin về Port cũng như IP của tất cả Service trong hệ thống,
 khi có Service cần gọi cho Service thì sẽ gửi request lên Service Discovery để tìm thông về Service
 mà nó cần gọi. Do Service Discovery giải quyết một vấn đề tương đói quan trọng nên da số hệ thống
-Microservice đều sẽ có một Service làm nhiệm vụ này.
+Microservices đều sẽ có một Service làm nhiệm vụ này.
 
 ### Chuẩn bị thêm gia vị
 
@@ -96,11 +96,11 @@ Thường khi nhắc tới so sánh kiến trúc Microservices thì ta sẽ ngh�
 không lạ lắm vì 2 kiến trúc này hoàn toàn ngược nhau vầ việc so sánh sẽ dễ làm bật ra tính chất
 của cả 2.
 
-### Microservice
+### Microservices
 
 #### Điểm mạnh
 
-Khả năng Scale là thứ mà chắc là nhiều bạn cũng nghe quảng cáo rồi, thì kiến trúc Microservice làm
+Khả năng Scale là thứ mà chắc là nhiều bạn cũng nghe quảng cáo rồi, thì kiến trúc Microservices làm
 điều này rất là tốt, mỗi Service độc lập nhau nên đóng gói thành Container dễ dàng. Về mặt thay đổi
 tính năng cũng tương đối dễ dàng khi chỉ cần tạo một Service mới bên cạnh các Service cũ và điều
 hướng người dùng từ từ qua tính năng mới thay vì phải dóng Website để bảo trì.
@@ -110,7 +110,7 @@ hướng người dùng từ từ qua tính năng mới thay vì phải dóng We
 Việc tạo nhiều Service như vậy khiến chạy sản phẩm dưới Local tương đối khó khăn, nếu bạn sử dụng
 Java Spring Boot thì sẽ bị choáng với lượng Ram mà cả hệ thống cần do mỗi Service lại cần 1 JVM
 riêng, Garbage Collector riêng. Do các ngôn ngữ đều tối ưu cho chính Project biên dịch thôi, nên
-việc chạy hệ thống gồm nhiều Project sẽ tốn nhiều tài nguyên hơn chạy mốt Project lớn. CI/CD cho 
+việc chạy hệ thống gồm nhiều Project sẽ tốn nhiều tài nguyên hơn chạy mốt Project lớn. CI/CD cho
 Microservices cũng tốn thời gian nhiều hơn và từ đó chi phí vận hành hệ thống cũng tăng lên.
 
 Việc các Service giao tiếp với nhau qua Network cũng tăng độ Deplay của hệ thống khi xử lý Request
