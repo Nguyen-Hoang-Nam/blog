@@ -20,6 +20,12 @@
                 {{ end -}} {{- end -}} {{- end -}}
             </div>
         </div>
+        {{ if gt (len .TableOfContents) 80}}
+        <div class="table-of-content">
+            <h3>Table of contents</h3>
+            {{ .TableOfContents }}
+        </div>
+        {{ end }}
     </div>
 </div>
 {{ end }}
