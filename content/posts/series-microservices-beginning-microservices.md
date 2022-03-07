@@ -11,14 +11,14 @@ creditUnsplash: "https://unsplash.com/s/photos/forest?utm_source=unsplash&utm_me
 
 Có lẽ Microservices không còn là một thuật ngữ quá mới đối với Dev nữa khi mà ngày càng nhiều Framework,
 Platform hỗ trợ kiến trúc này. Vì vậy, để các bạn mới bắt đầu với kiến trúc này có thể tìm hiểu về nó,
-mình quyết định bắt đầu 1 series nhỏ giới thiệu qua những khái niệm cũng như những thứ hay hó khác.
+mình quyết định bắt đầu 1 Series nhỏ giới thiệu qua những khái niệm cũng như những thứ hay hó khác.
 Nếu bạn đã sẵn sàng thì chúng ta bắt đầu nào.
 
 ## Microservices là gì nhỉ?
 
 Khác với những kiến trúc hay những Design Pattern khi mà nó thường bao hàm cách để có thể tự mình implement
 lại được. Microservices có vẻ mập mờ hơn, điểm chung lớn nhất của những người nói họ thiết kế hệ thống theo
-Microservices là hệ thống giồng rất nhiều Project và chúng dùng api để giao tiếp với nhau.
+Microservices là hệ thống giồng rất nhiều Project và chúng dùng API để giao tiếp với nhau.
 
 Sự mập mờ còn từ chữ "micro" nữa, từ này thể hiện là chúng ta cần chia hệ thống thành rất nhiều phần nhỏ,
 nhưng nhỏ tới thế nào thì lại không rõ lắm. Chia nhỏ tới từng Function hay từng Class thì có vẻ không ổn lắm,
@@ -53,9 +53,9 @@ Tất nhiên là bạn có thể không cần dùng hết tất cả nếu hệ 
 ### Gateway
 
 Như mình có nói ở trên thì các Service độc lập và giao tiếp qua tầng Network, vậy trừ khi bạn quyết
-định để mỗi Service publish một IP riêng ra bên ngoài vì không thể tranh nhau cùng một port được.
+định để mỗi Service publish một IP riêng ra bên ngoài vì không thể tranh nhau cùng một Port được.
 Thì Gateway xem chừng là một thứ không thể thiếu được, nó sẽ handle việc Reverse Proxy cũng như Load
-Balance. Mỗi request từ phía client đều sẽ phải đi qua Gateway, và nó sẽ phần chia request tới chính
+Balance. Mỗi Request từ phía client đều sẽ phải đi qua Gateway, và nó sẽ phần chia request tới chính
 xác Service. Chính vì Gateway cũng làm việc độc lập và giao tiếp qua Network, nên Gateway thường sẽ
 là một Service trong hệ thống.
 
@@ -70,7 +70,7 @@ khi có Service cần gọi cho Service thì sẽ gửi request lên Service Dis
 mà nó cần gọi. Do Service Discovery giải quyết một vấn đề tương đói quan trọng nên da số hệ thống
 Microservices đều sẽ có một Service làm nhiệm vụ này.
 
-### Chuẩn bị thêm gia vị
+## Chuẩn bị thêm gia vị
 
 Để giúp món ăn Microservices được ngon thì bạn có thể sử dụng thêm một số gia vị sau đây, chúng thường
 không bắt buộc nhưng giúp bạn giải quyết một số những vấn đề thường gặp trong Microservices.
@@ -116,6 +116,10 @@ Microservices cũng tốn thời gian nhiều hơn và từ đó chi phí vận 
 Việc các Service giao tiếp với nhau qua Network cũng tăng độ Deplay của hệ thống khi xử lý Request
 của Client. Ngoài ra cách giao tiếp này cũng rất khó Debug cũng như tìm ra lỗi, khi một Request có
 thể phải đi qua nhiều Service tạo ra nhiều kịch bản khác nhau.
+
+### Monolith
+
+Ngược lại với cái trên nên thôi mình không ghi nha 😅.
 
 ## Tổng kết thôi
 
