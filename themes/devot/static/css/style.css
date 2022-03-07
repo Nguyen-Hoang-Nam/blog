@@ -1,3 +1,9 @@
+:root {
+    --dark-black: rgb(18, 20, 24);
+    --light-black: rgb(108, 111, 114);
+    --link-color: rgb(228, 67, 39);
+}
+
 @font-face {
     font-family: FiraCode;
     src: url("../fonts/FiraCode-Regular.woff2");
@@ -35,15 +41,15 @@ body {
 
 .header-credit {
     text-align: center;
-    margin-top: 10xp;
+    margin-top: 10px;
     margin-bottom: 0;
     font-family: "Lora", serif;
-    color: rgb(108, 111, 114);
+    color: var(--light-black);
 }
 
 .header-credit a {
     text-decoration: none;
-    color: rgb(228, 67, 39);
+    color: var(--link-color);
 }
 
 .main {
@@ -105,7 +111,7 @@ body {
     line-height: 32.3px;
     font-size: 17px;
     margin: 30px 0;
-    color: rgb(108, 111, 114);
+    color: var(--light-black);
 }
 
 .content p:first-of-type::first-letter {
@@ -113,7 +119,7 @@ body {
     line-height: 1em;
     font-weight: 700;
     margin: 0.1em 0.35em 0 0;
-    color: rgb(18, 20, 24);
+    color: var(--dark-black);
     float: left;
 }
 
@@ -122,7 +128,7 @@ h2 + p::first-letter {
     line-height: 1em;
     font-weight: 700;
     margin: 0.1em 0.35em 0 0;
-    color: rgb(18, 20, 24);
+    color: var(--dark-black);
     float: left;
 }
 
@@ -131,7 +137,7 @@ h2 + p::first-letter {
     font-size: 50px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    color: rgb(18, 20, 24);
+    color: var(--dark-black);
 }
 
 .content h2 {
@@ -140,7 +146,7 @@ h2 + p::first-letter {
     margin-bottom: 40px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    color: rgb(18, 20, 24);
+    color: var(--dark-black);
 }
 
 .content h3 {
@@ -149,7 +155,7 @@ h2 + p::first-letter {
     margin-bottom: 30px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    color: rgb(18, 20, 24);
+    color: var(--dark-black);
 }
 
 .content h4 {
@@ -158,13 +164,13 @@ h2 + p::first-letter {
     margin-bottom: 25px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    color: rgb(18, 20, 24);
+    color: var(--dark-black);
 }
 
 .content time {
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    color: rgb(108, 111, 114);
+    color: var(--light-black);
 }
 
 .content figure {
@@ -173,7 +179,7 @@ h2 + p::first-letter {
 
 .content figcaption {
     text-align: center;
-    color: rgb(108, 111, 114);
+    color: var(--light-black);
     font-family: "Lora", serif;
 }
 
@@ -218,5 +224,33 @@ code {
     border-top: 1px solid #eee;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    color: rgb(108, 111, 114);
+    color: var(--light-black);
+}
+
+@media only screen and (max-width: 1000px) {
+    .main-container {
+        justify-content: center;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .content {
+        width: 700px;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .main-container {
+        justify-content: center;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .content {
+        width: 80%;
+    }
 }
