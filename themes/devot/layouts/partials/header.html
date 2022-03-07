@@ -1,11 +1,17 @@
 <div class="header">
-    {{ if .IsHome }}
-    <img src="/images/home.jpg" class="header-img" alt="Profile" />
-    {{ else }}
+    {{ if .IsPage }}
     <img src="{{ .Params.image }}" class="header-img" alt="Profile" />
+    {{ else }}
+    <img src="/images/home.jpg" class="header-img" alt="Profile" />
     {{ end }}
 </div>
-{{ if .IsHome }}
+{{ if .IsPage }}
+<p class="header-credit">
+    Photo by
+    <a href="{{ .Params.creditAuthorLink }}">{{ .Params.creditAuthor }}</a>
+    on <a href="{{ .Params.creditUnsplash }}">Unsplash</a>
+</p>
+{{ else }}
 <p class="header-credit">
     Photo by
     <a
@@ -17,11 +23,5 @@
         href="https://unsplash.com/t/nature?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
         >Unsplash</a
     >
-</p>
-{{ else }}
-<p class="header-credit">
-    Photo by
-    <a href="{{ .Params.creditAuthorLink }}">{{ .Params.creditAuthor }}</a>
-    on <a href="{{ .Params.creditUnsplash }}">Unsplash</a>
 </p>
 {{ end }}

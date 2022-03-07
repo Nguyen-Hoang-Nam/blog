@@ -2,6 +2,7 @@
     --dark-black: rgb(18, 20, 24);
     --light-black: rgb(108, 111, 114);
     --link-color: rgb(228, 67, 39);
+    --grey: rgb(248, 247, 245);
 }
 
 @font-face {
@@ -83,8 +84,8 @@ body {
 }
 
 .sidebar-avatar {
-    width: 180px;
-    height: 180px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
@@ -96,6 +97,7 @@ body {
 
 .sidebar-title {
     font-size: 30px;
+    font-weight: 600;
     padding-bottom: 20px;
 }
 
@@ -217,6 +219,21 @@ code {
 .post-summary {
     text-decoration: none;
     color: black;
+}
+
+.tags {
+    margin-top: 50px;
+}
+
+.tags a {
+    text-decoration: none;
+    color: var(--dark-black);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: var(--grey);
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
 }
 
 .footer {
