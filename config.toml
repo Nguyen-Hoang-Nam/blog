@@ -4,6 +4,8 @@ title = 'DevOT blog'
 
 theme = 'devot'
 
+googleAnalytics = 'G-48E9108RES'
+
 [menu]
     [[menu.main]]
         name = "Posts"

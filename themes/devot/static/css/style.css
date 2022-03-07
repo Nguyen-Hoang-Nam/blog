@@ -98,7 +98,7 @@ h4 > a {
 .main-container {
     width: 1000px;
     display: flex;
-    column-gap: 40px;
+    /* column-gap: 40px; */
     position: relative;
 }
 
@@ -166,14 +166,20 @@ ul {
     font-weight: 400;
 }
 
+.sidebar-container {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+}
+
 .sidebar a {
     text-decoration: none;
     color: black;
 }
 
 .sidebar-avatar {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
@@ -195,6 +201,10 @@ ul {
 
 .content {
     font-family: "Lora", serif;
+}
+
+.content-container {
+    margin-left: 60px;
 }
 
 .content p {
@@ -311,6 +321,8 @@ code {
 
 .tags {
     margin-top: 50px;
+    margin-bottom: 100px;
+    margin-left: 60px;
 }
 
 .tags a {
@@ -322,6 +334,10 @@ code {
     background-color: var(--grey);
     font-family: "Inter", sans-serif;
     font-weight: 400;
+}
+
+.utterances {
+    margin: 0;
 }
 
 .footer {
