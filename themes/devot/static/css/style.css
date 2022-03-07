@@ -107,6 +107,17 @@ h4 > a {
     width: 280px;
     top: 0;
     right: -320px;
+    height: 100%;
+}
+
+.sticky-table {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+}
+
+.active {
+    color: var(--dark-black) !important;
 }
 
 .table-of-content h3 {
