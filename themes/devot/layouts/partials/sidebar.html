@@ -7,9 +7,24 @@
                 alt="Avatar"
             />
         </div>
+
         <div class="sidebar-title">
             <a href="/">DevOT blog</a>
+            {{ $url := urls.Parse .Permalink }} {{ $trimUrl :=
+            strings.TrimPrefix "/en" $url.Path }}
         </div>
+
+        <div class="sidebar-language">
+            {{ if eq .Site.Language.Lang "vn" }}
+            <p>vn</p>
+            /
+            <a href="/en{{ $trimUrl }}">en</a>
+            {{ else }}
+            <a href="{{ $trimUrl }}">vn</a> /
+            <p>en</p>
+            {{ end }}
+        </div>
+
         <div class="sidebar-link">
             Github:
             <a href="https://github.com/Nguyen-Hoang-Nam"> Nguyen-Hoang-Nam </a>

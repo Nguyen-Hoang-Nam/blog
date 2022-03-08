@@ -6,6 +6,8 @@ theme = 'devot'
 
 googleAnalytics = 'G-48E9108RES'
 
+defaultContentLanguage = 'vn'
+
 [menu]
     [[menu.main]]
         name = "Posts"
@@ -40,3 +42,9 @@ googleAnalytics = 'G-48E9108RES'
             xhtml = false
     [markup.highlight]
         style = 'github'
+
+[languages]
+    [languages.vn]
+        languageName = 'vn'
+    [languages.en]
+        languageName = 'en'
