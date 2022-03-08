@@ -41,10 +41,11 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
     background-color: var(--background-color);
+    position: relative;
 }
 
 body::-webkit-scrollbar {
-    display: none;
+    /* display: none; */
     /* background-color: white; */
     /* width: 20px; */
 }
@@ -362,6 +363,10 @@ code {
     color: var(--primary-color);
     font-family: "Inter", sans-serif;
     font-weight: 600;
+}
+
+.post-title-link:hover {
+    color: var(--primary-color);
 }
 
 .post-summary {
