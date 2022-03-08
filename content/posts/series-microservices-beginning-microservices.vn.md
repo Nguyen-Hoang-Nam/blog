@@ -2,7 +2,7 @@
 title: "Series Microservices: Bắt đầu với Microservices"
 date: 2022-03-06T12:51:24+07:00
 draft: false
-tags: ["microservices", "spring boot", "test 1", "test 2", "test 3", "test 4"]
+tags: ["microservices"]
 image: "/images/series-microservices-beginning-microservices.jpg"
 creditAuthor: "JOHN TOWNER"
 creditAuthorLink: "https://unsplash.com/@heytowner?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"

@@ -1,8 +1,17 @@
 :root {
-    --dark-black: rgb(18, 20, 24);
-    --light-black: rgb(108, 111, 114);
+    --primary-color: rgb(18, 20, 24);
+    --secondary-color: rgb(108, 111, 114);
     --link-color: rgb(228, 67, 39);
-    --grey: rgb(242, 242, 242);
+    --button-color: rgb(242, 242, 242);
+    --background-color: rgb(255, 255, 255);
+}
+
+[data-theme="dark"] {
+    --primary-color: rgb(252, 252, 252);
+    --secondary-color: rgb(191, 194, 201);
+    --link-color: rgb(228, 67, 39);
+    --button-color: rgb(33, 34, 39);
+    --background-color: rgb(18, 20, 24);
 }
 
 @font-face {
@@ -31,6 +40,7 @@ body {
     flex-direction: column;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    background-color: var(--background-color);
 }
 
 body::-webkit-scrollbar {
@@ -51,17 +61,17 @@ body::-webkit-scrollbar {
 
 h2 > a {
     text-decoration: none;
-    color: var(--dark-black);
+    color: var(--primary-color);
 }
 
 h3 > a {
     text-decoration: none;
-    color: var(--dark-black);
+    color: var(--primary-color);
 }
 
 h4 > a {
     text-decoration: none;
-    color: var(--dark-black);
+    color: var(--primary-color);
 }
 
 .header {
@@ -79,7 +89,7 @@ h4 > a {
     margin-top: 10px;
     margin-bottom: 0;
     font-family: "Lora", serif;
-    color: var(--light-black);
+    color: var(--secondary-color);
 }
 
 .header-credit a {
@@ -117,7 +127,7 @@ h4 > a {
 }
 
 .active {
-    color: var(--dark-black) !important;
+    color: var(--primary-color) !important;
 }
 
 .table-of-content h3 {
@@ -125,12 +135,12 @@ h4 > a {
     font-size: 25px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    color: var(--dark-black);
+    color: var(--primary-color);
 }
 
 .table-of-content a {
     text-decoration: none;
-    color: var(--light-black);
+    color: var(--secondary-color);
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 15px;
@@ -180,13 +190,25 @@ ul {
 .sidebar-avatar {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
+    position: relative;
+}
+
+#mode {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    padding: 6px;
+    background-color: var(--background-color);
+    border: 1px solid var(--button-color);
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .sidebar-avatar-img {
     width: 100%;
+    border-radius: 50%;
 }
 
 .sidebar-title {
@@ -195,25 +217,36 @@ ul {
     font-weight: 600;
 }
 
+.sidebar-title a {
+    color: var(--primary-color);
+}
+
 .sidebar-language {
     text-align: center;
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 18px;
     padding-bottom: 20px;
+    color: var(--primary-color);
 }
 
 .sidebar-language p {
     display: inline;
+    color: var(--primary-color);
 }
 
 .sidebar-language a {
-    color: var(--light-black);
+    color: var(--secondary-color);
 }
 
 .sidebar-link {
     text-align: center;
     width: 100%;
+    color: var(--primary-color);
+}
+
+.sidebar-link a {
+    color: var(--primary-color);
 }
 
 .content {
@@ -228,7 +261,7 @@ ul {
     line-height: 32.3px;
     font-size: 17px;
     margin: 30px 0;
-    color: var(--light-black);
+    color: var(--secondary-color);
 }
 
 .content p:first-of-type::first-letter {
@@ -236,7 +269,7 @@ ul {
     line-height: 1em;
     font-weight: 700;
     margin: 0.1em 0.35em 0 0;
-    color: var(--dark-black);
+    color: var(--primary-color);
     float: left;
 }
 
@@ -245,7 +278,7 @@ h2 + p::first-letter {
     line-height: 1em;
     font-weight: 700;
     margin: 0.1em 0.35em 0 0;
-    color: var(--dark-black);
+    color: var(--primary-color);
     float: left;
 }
 
@@ -254,7 +287,7 @@ h2 + p::first-letter {
     font-size: 50px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    color: var(--dark-black);
+    color: var(--primary-color);
 }
 
 .content h2 {
@@ -263,7 +296,7 @@ h2 + p::first-letter {
     margin-bottom: 40px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    color: var(--dark-black);
+    color: var(--primary-color);
 }
 
 .content h3 {
@@ -272,7 +305,7 @@ h2 + p::first-letter {
     margin-bottom: 30px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    color: var(--dark-black);
+    color: var(--primary-color);
 }
 
 .content h4 {
@@ -281,13 +314,13 @@ h2 + p::first-letter {
     margin-bottom: 25px;
     font-family: "Inter", sans-serif;
     font-weight: 600;
-    color: var(--dark-black);
+    color: var(--primary-color);
 }
 
 .content time {
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    color: var(--light-black);
+    color: var(--secondary-color);
 }
 
 .content figure {
@@ -296,7 +329,7 @@ h2 + p::first-letter {
 
 .content figcaption {
     text-align: center;
-    color: var(--light-black);
+    color: var(--secondary-color);
     font-family: "Lora", serif;
 }
 
@@ -326,7 +359,7 @@ code {
 
 .post-title-link {
     text-decoration: none;
-    color: black;
+    color: var(--primary-color);
     font-family: "Inter", sans-serif;
     font-weight: 600;
 }
@@ -354,11 +387,11 @@ code {
 
 .tags a {
     text-decoration: none;
-    color: var(--dark-black);
+    color: var(--primary-color);
     border-radius: 5px;
     padding: 10px;
     font-size: 15px;
-    background-color: var(--grey);
+    background-color: var(--button-color);
     font-family: "Inter", sans-serif;
     font-weight: 400;
 }
@@ -377,11 +410,20 @@ code {
 }
 
 .footer {
-    padding: 5px 0 5px 15px;
+    padding: 5px 15px 5px 15px;
     border-top: 1px solid #eee;
     font-family: "Inter", sans-serif;
     font-weight: 400;
-    color: var(--light-black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--secondary-color);
+}
+
+.footer-icon img {
+    display: flex;
+    align-items: center;
+    height: 20px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -419,14 +461,14 @@ code {
 
 .resp-sharing-button__link {
     text-decoration: none;
-    color: var(--dark-black);
+    color: var(--primary-color);
 }
 
 .resp-sharing-button {
     border-radius: 5px;
     transition: 25ms ease-out;
     padding: 0.5em 0.75em;
-    background-color: var(--grey);
+    background-color: var(--button-color);
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
@@ -444,6 +486,6 @@ code {
 
 /* Solid icons get a fill */
 .resp-sharing-button__icon--solid {
-    fill: var(--dark-black);
+    fill: var(--primary-color);
     stroke: none;
 }
