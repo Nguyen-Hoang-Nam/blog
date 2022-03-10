@@ -1,6 +1,8 @@
-<div class="sidebar">
-    <div class="sidebar-container">
-        <div class="sidebar-avatar">
+<div
+    class="flex flex-column align-item-center font-sans-serif font-normal sidebar"
+>
+    <div class="sticky-table">
+        <div class="position-relative sidebar-avatar">
             <img
                 src="/images/avatar.jpg"
                 class="sidebar-avatar-img"
@@ -10,13 +12,15 @@
             <div id="mode"></div>
         </div>
 
-        <div class="sidebar-title">
+        <div class="text-align-center font-bold sidebar-title">
             <a href="/">DevOT blog</a>
             {{ $url := urls.Parse .Permalink }} {{ $trimUrl :=
             strings.TrimPrefix "/en" $url.Path }}
         </div>
 
-        <div class="sidebar-language">
+        <div
+            class="text-align-center font-sans-serif font-normal primary-color sidebar-language"
+        >
             {{ if eq .Site.Language.Lang "vn" }}
             <p>vn</p>
             /
@@ -27,9 +31,9 @@
             {{ end }}
         </div>
 
-        <div class="sidebar-social">
+        <div class="flex align-item-center sidebar-social">
             <a
-                class="resp-sharing-button__link"
+                class="primary-color resp-sharing-button__link"
                 href="https://github.com/Nguyen-Hoang-Nam"
                 target="_blank"
                 rel="noopener"
@@ -44,7 +48,7 @@
             </a>
 
             <a
-                class="resp-sharing-button__link"
+                class="primary-color resp-sharing-button__link"
                 href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-5b05711bb/"
                 target="_blank"
                 rel="noopener"
@@ -70,7 +74,7 @@
             </a>
 
             <a
-                class="resp-sharing-button__link"
+                class="primary-color resp-sharing-button__link"
                 href="https://www.facebook.com/profile.php?id=100064522001764"
                 target="_blank"
                 rel="noopener"
@@ -96,7 +100,7 @@
             </a>
 
             <a
-                class="resp-sharing-button__link"
+                class="primary-color resp-sharing-button__link"
                 href="https://twitter.com/nguyenh79185323"
                 target="_blank"
                 rel="noopener"

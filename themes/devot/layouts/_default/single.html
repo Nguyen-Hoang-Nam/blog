@@ -1,8 +1,8 @@
 {{ define "main" }}
-<div class="main">
-    <div class="main-container">
+<div class="flex main">
+    <div class="flex main-container">
         {{- partial "sidebar.html" . -}}
-        <div class="content">
+        <div class="font-serif content">
             <div class="content-container">
                 <h1>{{ .Title }}</h1>
                 {{ partial "metadata.html" . }}
@@ -12,7 +12,7 @@
                 {{ .Content }}
             </div>
 
-            <div class="main-footer">
+            <div class="flex main-footer">
                 {{ partial "tags.html" . }} {{ partial "social.html" . }}
             </div>
 

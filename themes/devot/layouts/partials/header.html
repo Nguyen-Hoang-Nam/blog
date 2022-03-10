@@ -5,14 +5,15 @@
     <img src="/images/home.jpg" class="header-img" alt="Profile" />
     {{ end }}
 </div>
+
 {{ if .IsPage }}
-<p class="header-credit">
+<p class="text-align-center font-serif font-normal header-credit">
     Photo by
     <a href="{{ .Params.creditAuthorLink }}">{{ .Params.creditAuthor }}</a>
     on <a href="{{ .Params.creditUnsplash }}">Unsplash</a>
 </p>
 {{ else }}
-<p class="header-credit">
+<p class="text-align font-serif font-normal secondary-color header-credit">
     Photo by
     <a
         href="https://unsplash.com/@hportillo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"

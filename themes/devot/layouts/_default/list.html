@@ -1,20 +1,20 @@
 {{ define "main" }}
-<div class="main">
-    <div class="main-container">
+<div class="flex main">
+    <div class="flex position-relative main-container">
         {{- partial "sidebar.html" . -}}
         <div class="content">
             <div class="content-container">
                 {{ range ( where .Site.RegularPages "Type" "posts" ) }}
                 <div class="post">
-                    <h3 class="post-title">
-                        <a class="post-title-link" href="{{ .RelPermalink }}">
+                    <h3 class="font-sans-serif font-bold post-title">
+                        <a class="primary-color post-title-link" href="{{ .RelPermalink }}">
                             {{ .Title }}
                         </a>
                     </h3>
                     {{ partial "metadata.html" . }}
                     </br>
                     </br>
-                    <a class="post-summary" href="{{ .RelPermalink }}">
+                    <a class="primary-color post-summary" href="{{ .RelPermalink }}">
                         <p>{{ .Summary }}</p>
                     </a>
                 </div>

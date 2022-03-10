@@ -1,11 +1,11 @@
-<div class="social">
+<div class="flex social">
     {{ $title := .Title }} {{ $url := printf "%s" .Permalink | absLangURL }} {{
     $body := print $title ", by " .Site.Title "\n" .Params.description "\n\n"
     $url "\n" }}
 
     <!-- Sharingbutton Facebook -->
     <a
-        class="resp-sharing-button__link"
+        class="primary-color resp-sharing-button__link"
         href="https://facebook.com/sharer/sharer.php?u={{ $url }}"
         target="_blank"
         rel="noopener"
@@ -29,7 +29,7 @@
 
     <!-- Sharingbutton Twitter -->
     <a
-        class="resp-sharing-button__link"
+        class="primary-color resp-sharing-button__link"
         href="https://twitter.com/intent/tweet/?url={{ $url }}&text={{ $title }}&via={{with .Site.Social.twitter }}{{ . }}{{ end }}"
         target="_blank"
         rel="noopener"
@@ -53,7 +53,7 @@
 
     <!-- Sharingbutton E-Mail -->
     <a
-        class="resp-sharing-button__link"
+        class="primary-color resp-sharing-button__link"
         href="mailto:?subject=Check%20out%20{{ $title }}.&body={{ $body }}"
         target="_self"
         rel="noopener"
@@ -77,7 +77,7 @@
 
     <!-- Sharingbutton Reddit -->
     <a
-        class="resp-sharing-button__link"
+        class="primary-color resp-sharing-button__link"
         href="https://reddit.com/submit/?url={{ $url }};resubmit=true&amp;title={{ $title }}"
         target="_blank"
         rel="noopener"
