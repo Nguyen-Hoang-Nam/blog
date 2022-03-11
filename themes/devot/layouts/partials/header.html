@@ -7,7 +7,9 @@
 </div>
 
 {{ if .IsPage }}
-<p class="text-align-center font-serif font-normal header-credit">
+<p
+    class="text-align-center font-serif font-normal secondary-color header-credit"
+>
     Photo by
     <a href="{{ .Params.creditAuthorLink }}">{{ .Params.creditAuthor }}</a>
     on <a href="{{ .Params.creditUnsplash }}">Unsplash</a>
