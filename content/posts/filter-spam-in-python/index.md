@@ -13,6 +13,8 @@ creditUnsplash: "https://unsplash.com/s/photos/spam?utm_source=unsplash&utm_medi
 nhỏ này, mình sẽ hướng dẫn cách để tạo ra một hệ thống chống Spam nho nhỏ. Mình thấy bài viết cũng rất phù hợp với các
 bạn muốn tìm hiểu về xử lý ngôn ngữ tự nhiên (NLP).
 
+<!--more-->
+
 Để bạn có thể đọc bài viết một cách hiệu quả nhất việc biết 1 chút Python cũng như Google Colab chắc chắn là một lợi thế.
 Nếu không thì các bạn cũng yên tâm, mình sẽ giải thích kĩ từng phần.
 

@@ -8,6 +8,8 @@ googleAnalytics = 'G-48E9108RES'
 
 defaultContentLanguage = 'vn'
 
+pygmentsUseClasses = true
+
 [menu]
     [[menu.main]]
         name = "Posts"
@@ -40,8 +42,15 @@ defaultContentLanguage = 'vn'
             hardWraps = false
             unsafe = false
             xhtml = false
-    [markup.highlight]
-        style = 'github'
+        [markup.highlight]
+            codeFences = true
+            guessSyntax = true
+            hl_Lines = ""
+            lineNoStart = 1
+            lineNos = true
+            lineNumbersInTable = true
+            tabWidth = 4
+            noClasses = false
 
 [languages]
     [languages.vn]

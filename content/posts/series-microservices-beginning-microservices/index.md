@@ -14,6 +14,8 @@ Platform hỗ trợ kiến trúc này. Vì vậy, để các bạn mới bắt �
 mình quyết định bắt đầu 1 Series nhỏ giới thiệu qua những khái niệm cũng như những thứ hay hó khác.
 Nếu bạn đã sẵn sàng thì chúng ta bắt đầu nào.
 
+<!--more-->
+
 ## Microservices là gì nhỉ?
 
 Khác với những kiến trúc hay những Design Pattern khi mà nó thường bao hàm cách để có thể tự mình implement

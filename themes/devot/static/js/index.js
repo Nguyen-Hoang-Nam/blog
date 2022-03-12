@@ -37,6 +37,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const mode = document.getElementById("mode");
     const githubIcon = document.getElementById("github-icon");
     const githubIcon1 = document.getElementById("github-icon-1");
+    const chromaTheme = document.getElementById("chroma-theme");
 
     mode.addEventListener("click", function () {
         const currentMode = mode.textContent;
@@ -54,6 +55,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 "src",
                 "/images/GitHub-Mark-Light-32px.png"
             );
+
+            chromaTheme.href = "/css/syntax-dark.css";
         } else {
             mode.textContent = lightMode;
             document.documentElement.setAttribute("data-theme", "light");
@@ -62,6 +65,8 @@ window.addEventListener("DOMContentLoaded", () => {
             utterancesTheme("light");
             githubIcon.setAttribute("src", "/images/GitHub-Mark-32px.png");
             githubIcon1.setAttribute("src", "/images/GitHub-Mark-32px.png");
+
+            chromaTheme.href = "/css/syntax-light.css";
         }
     });
 
@@ -81,6 +86,8 @@ window.addEventListener("DOMContentLoaded", () => {
                 "src",
                 "/images/GitHub-Mark-Light-32px.png"
             );
+
+            chromaTheme.href = "/css/syntax-dark.css";
         }
     } else {
         mode.textContent = lightMode;
