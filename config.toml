@@ -1,4 +1,4 @@
-baseURL = ''
+baseURL = 'https://devot.netlify.app/'
 languageCode = 'en-us'
 title = 'DevOT blog'
 
@@ -9,6 +9,14 @@ googleAnalytics = 'G-48E9108RES'
 defaultContentLanguage = 'vn'
 
 pygmentsUseClasses = true
+
+[author]
+    name = "Nguyễn Hoàng Nam"
+
+[outputFormats]
+    [outputFormats.RSS]
+        mediaType = "application/rss+xml"
+        baseName = "feed"
 
 [menu]
     [[menu.main]]

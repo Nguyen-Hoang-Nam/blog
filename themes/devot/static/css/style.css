@@ -203,7 +203,6 @@ h4 {
 
 .main {
     margin-top: 50px;
-    margin-bottom: 100px;
     flex-grow: 1;
     justify-content: center;
 }
@@ -232,6 +231,11 @@ h4 {
 
 .sidebar a {
     color: var(--primary-color);
+}
+
+.sidebar-rss {
+    position: absolute;
+    right: -5px;
 }
 
 .sidebar-avatar {

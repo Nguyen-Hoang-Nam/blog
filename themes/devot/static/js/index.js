@@ -40,6 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const mode = document.getElementById("mode");
     const githubIcon = document.getElementById("github-icon");
     const githubIcon1 = document.getElementById("github-icon-1");
+    const rss = document.getElementById("rss");
     const chromaTheme = document.getElementById("chroma-theme");
 
     mode.addEventListener("click", function () {
@@ -58,6 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 "src",
                 "/images/GitHub-Mark-Light-32px.png"
             );
+            rss.setAttribute("src", "/images/rss-dark.png");
 
             chromaTheme.href = "/css/syntax-dark.css";
         } else {
@@ -68,6 +70,7 @@ window.addEventListener("DOMContentLoaded", () => {
             utterancesTheme("light");
             githubIcon.setAttribute("src", "/images/GitHub-Mark-32px.png");
             githubIcon1.setAttribute("src", "/images/GitHub-Mark-32px.png");
+            rss.setAttribute("src", "/images/rss-light.png");
 
             chromaTheme.href = "/css/syntax-light.css";
         }
@@ -89,6 +92,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 "src",
                 "/images/GitHub-Mark-Light-32px.png"
             );
+            rss.setAttribute("src", "/images/rss-dark.png");
 
             chromaTheme.href = "/css/syntax-dark.css";
         }
