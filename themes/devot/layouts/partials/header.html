@@ -1,5 +1,5 @@
 <div class="header">
-    {{ $imagePath := "/images/cover.webp" }} {{ if .IsPage }} {{ $imagePath :=
+    {{ $imagePath := "/images/cover.webp" }} {{ if .IsPage }} {{ $imagePath =
     .Params.image }} {{ end }} {{ $image := .Resources.GetMatch $imagePath }}
 
     <img
