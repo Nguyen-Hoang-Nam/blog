@@ -1,9 +1,13 @@
 <div class="header">
-    {{ if .IsPage }}
-    <img src="{{ .Params.image }}" class="header-img" alt="Profile" />
-    {{ else }}
-    <img src="/images/cover.webp" class="header-img" alt="Profile" />
-    {{ end }}
+    {{ $imagePath := "/images/cover.webp" }} {{ if .IsPage }} {{ $imagePath :=
+    .Params.image }} {{ end }} {{ $image := .Resources.GetMatch $imagePath }}
+
+    <img
+        src="{{ $imagePath }}"
+        id="header-img"
+        class="header-img"
+        alt="Profile"
+    />
 </div>
 
 {{ if .IsPage }}

@@ -47,8 +47,8 @@ pygmentsUseClasses = true
             guessSyntax = true
             hl_Lines = ""
             lineNoStart = 1
-            lineNos = true
-            lineNumbersInTable = true
+            lineNos = false
+            lineNumbersInTable = false
             tabWidth = 4
             noClasses = false
 

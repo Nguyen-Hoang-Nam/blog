@@ -34,6 +34,9 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    const lazyLoadImage = window.lozad();
+    lazyLoadImage.observe();
+
     const mode = document.getElementById("mode");
     const githubIcon = document.getElementById("github-icon");
     const githubIcon1 = document.getElementById("github-icon-1");
