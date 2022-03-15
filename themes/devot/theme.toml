@@ -1,0 +1,12 @@
+name = "DevOT"
+license = "MIT"
+licenselink = "https://github.com/Nguyen-Hoang-Nam/blog/blob/main/LICENSE"
+description = "Highly inspired by Medium and Kicker"
+homepage = "https://devot.netlify.app/"
+tags = ["blog"]
+features = ["Syntax highlight", "Dark mode", "Comment", "Table of Contents", "RSS", "Lazy load"]
+min_version = "0.41"
+
+[author]
+    name = "Nguyen Hoang Nam"
+    homepage = "https://devot.netlify.app/"

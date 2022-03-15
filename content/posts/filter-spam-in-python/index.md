@@ -1,5 +1,8 @@
 ---
 title: "Cùng nhau chặn Spam bằng Python nào"
+description: "Trong bài viết
+nhỏ này, mình sẽ hướng dẫn cách để tạo ra một hệ thống chống Spam nho nhỏ. Mình thấy bài viết cũng rất phù hợp với các
+bạn muốn tìm hiểu về xử lý ngôn ngữ tự nhiên (NLP)."
 date: 2022-03-10T10:00:00+07:00
 draft: false
 tags: ["Spam", "Python", "ML", "NLP"]

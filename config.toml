@@ -65,3 +65,9 @@ pygmentsUseClasses = true
         languageName = 'vn'
     [languages.en]
         languageName = 'en'
+
+[params]
+    description = "The place where I share my Dev life and all about technical things I know"
+    keywords = "Developer, Microservice, Machine Learning"
+    twitterUsername = "@nguyenh79185323"
+    socialImage = "/images/avatar.webp"

@@ -267,6 +267,7 @@ h4 {
 
 .sidebar-title a {
     color: var(--primary-color);
+    line-height: 32px;
 }
 
 .sidebar-language {

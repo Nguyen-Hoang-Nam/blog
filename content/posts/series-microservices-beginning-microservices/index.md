@@ -1,5 +1,9 @@
 ---
 title: "Series Microservices: Bắt đầu với Microservices"
+description: "Có lẽ Microservices không còn là một thuật ngữ quá mới đối với Dev nữa khi mà ngày càng nhiều Framework,
+Platform hỗ trợ kiến trúc này. Vì vậy, để các bạn mới bắt đầu với kiến trúc này có thể tìm hiểu về nó,
+mình quyết định bắt đầu 1 Series nhỏ giới thiệu qua những khái niệm cũng như những thứ hay hó khác.
+Nếu bạn đã sẵn sàng thì chúng ta bắt đầu nào."
 date: 2022-03-06T12:51:24+07:00
 draft: false
 tags: ["microservices"]
