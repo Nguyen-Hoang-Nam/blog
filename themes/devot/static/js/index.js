@@ -101,4 +101,40 @@ window.addEventListener("DOMContentLoaded", () => {
         document.documentElement.setAttribute("data-theme", "light");
         localStorage.setItem("mode", lightMode);
     }
+
+    const connectMetamask = document.getElementById("connect-metamask");
+    const sendCoffee = document.getElementById("send-coffee");
+
+    let accounts = [];
+
+    if (typeof window.ethereum === "undefined") {
+        connectMetamask.classList.add("disable");
+    }
+
+    sendCoffee.addEventListener("click", () => {
+        ethereum
+            .request({
+                method: "eth_sendTransaction",
+                params: [
+                    {
+                        from: accounts[0],
+                        to: "0x0374fAe44F049252A9FDc517514566a57b5D9Af9",
+                        value: "0x11c37937e08000",
+                    },
+                ],
+            })
+            .then((txHash) => console.log(txHash))
+            .catch((error) => console.error(error));
+    });
+
+    connectMetamask.addEventListener("click", () => {
+        console.log("Work");
+        getAccount();
+    });
+
+    async function getAccount() {
+        accounts = await ethereum.request({
+            method: "eth_requestAccounts",
+        });
+    }
 });

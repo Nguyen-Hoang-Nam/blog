@@ -152,6 +152,14 @@ h4 {
     font-weight: 700 !important;
 }
 
+.disable {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
+
 /* body::-webkit-scrollbar { */
 /*     display: none; */
 /*     background-color: white; */
