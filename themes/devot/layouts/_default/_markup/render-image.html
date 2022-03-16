@@ -1,12 +1,23 @@
-{{ if .Title }}
+{{ $filePath := print "/content/" .Page.File.Dir }} {{ $img := imageConfig (add
+$filePath (.Destination | safeURL)) }} {{ if .Title }}
 <figure>
+    <figure>
+        <img
+            class="lozad"
+            data-src="{{ .Destination | safeURL }}"
+            alt="{{ .Text }}"
+            width="{{ $img.Width }}"
+            height="{{ $img.Height }}"
+        />
+        <figcaption>{{ .Title }}</figcaption>
+    </figure>
+    {{ else }}
     <img
         class="lozad"
         data-src="{{ .Destination | safeURL }}"
         alt="{{ .Text }}"
+        width="{{ $img.Width }}"
+        height="{{ $img.Height }}"
     />
-    <figcaption>{{ .Title }}</figcaption>
+    {{ end }}
 </figure>
-{{ else }}
-<img class="lozad" data-src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
-{{ end }}

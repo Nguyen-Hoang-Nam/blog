@@ -2,18 +2,20 @@
     font-family: FiraCode;
     src: url("../fonts/FiraCode-Regular.woff2");
     font-weight: 400;
+    font-display: swap;
 }
 
 @font-face {
     font-family: FiraCode;
     src: url("../fonts/FiraCode-Bold.woff2");
     font-weight: 700;
+    font-display: swap;
 }
 
 :root {
     --primary-color: rgb(18, 20, 24);
     --secondary-color: rgb(108, 111, 114);
-    --link-color: rgb(228, 67, 39);
+    --link-color: rgb(213, 63, 36);
     --button-color: rgb(242, 242, 242);
     --background-color: rgb(255, 255, 255);
 }
@@ -53,7 +55,7 @@ ul {
 }
 
 code {
-    font-family: "FiraCode";
+    font-family: "FiraCode", monospace;
 }
 
 a {
