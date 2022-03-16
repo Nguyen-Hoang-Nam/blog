@@ -105,13 +105,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 const connectMetamask = document.getElementById("connect-metamask");
 const connectPhantom = document.getElementById("connect-phantom");
-const sendCoffee = document.getElementById("send-coffee");
 let currentWallet = "";
 
 let accounts = [];
 
 if (typeof window.ethereum === "undefined") {
-    connectMetamask.classList.add("disable");
+    connectMetamask.disabled = true;
 }
 
 var provider;
@@ -130,7 +129,7 @@ const createTransferTransaction = async () => {
         solanaWeb3.SystemProgram.transfer({
             fromPubkey: provider.publicKey,
             toPubkey: to,
-            lamports: 0.05 * solanaWeb3.LAMPORTS_PER_SOL,
+            lamports: 0.0125 * solanaWeb3.LAMPORTS_PER_SOL,
         })
     );
 
@@ -142,47 +141,22 @@ const createTransferTransaction = async () => {
     return transaction;
 };
 
-sendCoffee.addEventListener("click", async () => {
-    if (currentWallet === "") {
-        return;
-    }
-
-    if (currentWallet === "metamask") {
-        ethereum
-            .request({
-                method: "eth_sendTransaction",
-                params: [
-                    {
-                        from: accounts[0],
-                        to: "0x0374fAe44F049252A9FDc517514566a57b5D9Af9",
-                        value: "0x11c37937e08000",
-                    },
-                ],
-            })
-            .then((txHash) => console.log(txHash))
-            .catch((error) => console.error(error));
-    } else if (currentWallet === "phantom") {
-        try {
-            const transaction = await createTransferTransaction();
-
-            if (!transaction) {
-                return;
-            }
-
-            let signed = await provider.signTransaction(transaction);
-            let signature = await connection.sendRawTransaction(
-                signed.serialize()
-            );
-            await connection.confirmTransaction(signature);
-        } catch (err) {
-            console.error(err);
-        }
-    }
-});
-
-connectMetamask.addEventListener("click", () => {
-    currentWallet = "metamask";
+connectMetamask.addEventListener("click", async () => {
     getMetamaskAccount();
+
+    ethereum
+        .request({
+            method: "eth_sendTransaction",
+            params: [
+                {
+                    from: accounts[0],
+                    to: "0x0374fAe44F049252A9FDc517514566a57b5D9Af9",
+                    value: "0x1c6bf52634000",
+                },
+            ],
+        })
+        .then((txHash) => console.log(txHash))
+        .catch((error) => console.error(error));
 });
 
 async function getMetamaskAccount() {
@@ -191,9 +165,22 @@ async function getMetamaskAccount() {
     });
 }
 
-connectPhantom.addEventListener("click", () => {
-    currentWallet = "phantom";
-    getPhantomAccount();
+connectPhantom.addEventListener("click", async () => {
+    await getPhantomAccount();
+
+    try {
+        const transaction = await createTransferTransaction();
+
+        if (!transaction) {
+            return;
+        }
+
+        let signed = await provider.signTransaction(transaction);
+        let signature = await connection.sendRawTransaction(signed.serialize());
+        await connection.confirmTransaction(signature);
+    } catch (err) {
+        console.error(err);
+    }
 });
 
 async function getPhantomAccount() {
@@ -211,7 +198,7 @@ const getProvider = async () => {
             return provider;
         }
     } else {
-        connectPhantom.classList.add("disable");
+        connectPhantom.disabled = true;
     }
 };
 
