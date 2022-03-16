@@ -315,6 +315,7 @@ h4 {
     transition: 25ms ease-out;
     background-color: var(--button-color);
     border: 0;
+    cursor: pointer;
 }
 
 /**
