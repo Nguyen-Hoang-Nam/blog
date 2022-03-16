@@ -101,17 +101,53 @@ window.addEventListener("DOMContentLoaded", () => {
         document.documentElement.setAttribute("data-theme", "light");
         localStorage.setItem("mode", lightMode);
     }
+});
 
-    const connectMetamask = document.getElementById("connect-metamask");
-    const sendCoffee = document.getElementById("send-coffee");
+const connectMetamask = document.getElementById("connect-metamask");
+const connectPhantom = document.getElementById("connect-phantom");
+const sendCoffee = document.getElementById("send-coffee");
+let currentWallet = "";
 
-    let accounts = [];
+let accounts = [];
 
-    if (typeof window.ethereum === "undefined") {
-        connectMetamask.classList.add("disable");
+if (typeof window.ethereum === "undefined") {
+    connectMetamask.classList.add("disable");
+}
+
+var provider;
+
+var connection = new solanaWeb3.Connection(
+    solanaWeb3.clusterApiUrl("devnet"),
+    "confirmed"
+);
+
+const createTransferTransaction = async () => {
+    var to = new solanaWeb3.PublicKey(
+        "9ZZoqoTfzMvpzeM719AbDnxdTBGaz2UYK77ZCwb5CQDD"
+    );
+
+    var transaction = new solanaWeb3.Transaction().add(
+        solanaWeb3.SystemProgram.transfer({
+            fromPubkey: provider.publicKey,
+            toPubkey: to,
+            lamports: 0.05 * solanaWeb3.LAMPORTS_PER_SOL,
+        })
+    );
+
+    transaction.feePayer = provider.publicKey;
+    transaction.recentBlockhash = (
+        await connection.getRecentBlockhash()
+    ).blockhash;
+
+    return transaction;
+};
+
+sendCoffee.addEventListener("click", async () => {
+    if (currentWallet === "") {
+        return;
     }
 
-    sendCoffee.addEventListener("click", () => {
+    if (currentWallet === "metamask") {
         ethereum
             .request({
                 method: "eth_sendTransaction",
@@ -125,16 +161,66 @@ window.addEventListener("DOMContentLoaded", () => {
             })
             .then((txHash) => console.log(txHash))
             .catch((error) => console.error(error));
-    });
+    } else if (currentWallet === "phantom") {
+        try {
+            const transaction = await createTransferTransaction();
 
-    connectMetamask.addEventListener("click", () => {
-        console.log("Work");
-        getAccount();
-    });
+            if (!transaction) {
+                return;
+            }
 
-    async function getAccount() {
-        accounts = await ethereum.request({
-            method: "eth_requestAccounts",
-        });
+            let signed = await provider.signTransaction(transaction);
+            let signature = await connection.sendRawTransaction(
+                signed.serialize()
+            );
+            await connection.confirmTransaction(signature);
+        } catch (err) {
+            console.error(err);
+        }
     }
 });
+
+connectMetamask.addEventListener("click", () => {
+    currentWallet = "metamask";
+    getMetamaskAccount();
+});
+
+async function getMetamaskAccount() {
+    accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+    });
+}
+
+connectPhantom.addEventListener("click", () => {
+    currentWallet = "phantom";
+    getPhantomAccount();
+});
+
+async function getPhantomAccount() {
+    try {
+        await window.solana.connect();
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+const getProvider = async () => {
+    if ("solana" in window) {
+        const provider = window.solana;
+        if (provider.isPhantom) {
+            return provider;
+        }
+    } else {
+        connectPhantom.classList.add("disable");
+    }
+};
+
+window.onload = () => {
+    getProvider()
+        .then((result) => {
+            provider = result;
+        })
+        .catch(function (error) {
+            console.error(error);
+        });
+};
