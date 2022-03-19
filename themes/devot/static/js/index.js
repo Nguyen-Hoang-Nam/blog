@@ -34,7 +34,13 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    const lazyLoadImage = window.lozad();
+    const lazyLoadImage = window.lozad(".lozad", {
+        loaded: function (el) {
+            if (el.dataset.alt) {
+                el.alt = el.dataset.alt;
+            }
+        },
+    });
     lazyLoadImage.observe();
 
     const mode = document.getElementById("mode");

@@ -3,10 +3,10 @@
     .Params.image }} {{ end }} {{ $image := .Resources.GetMatch $imagePath }}
 
     <img
-        src="{{ $imagePath }}"
+        data-src="{{ $imagePath }}"
         id="header-img"
-        class="header-img"
-        alt="Profile"
+        class="lozad header-img"
+        data-alt="Profile"
     />
 </div>
 
