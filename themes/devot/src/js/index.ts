@@ -1,5 +1,7 @@
-const lightMode = "☀️";
-const darkMode = "🌙";
+import "../css/style.css";
+
+const lightMode: string = "☀️";
+const darkMode: string = "🌙";
 
 window.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
@@ -21,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
         observer.observe(section);
     });
 
-    function utterancesTheme(currentMode) {
+    function utterancesTheme(currentMode: String) {
         if (document.querySelector(".utterances-frame")) {
             const theme =
                 currentMode === "dark" ? "github-dark" : "github-light";
@@ -29,25 +31,20 @@ window.addEventListener("DOMContentLoaded", () => {
                 type: "set-theme",
                 theme: theme,
             };
-            const iframe = document.querySelector(".utterances-frame");
+            const iframe = document.querySelector(
+                ".utterances-frame"
+            ) as HTMLIFrameElement;
             iframe.contentWindow.postMessage(message, "https://utteranc.es");
         }
     }
 
-    const lazyLoadImage = window.lozad(".lozad", {
-        loaded: function (el) {
-            if (el.dataset.alt) {
-                el.alt = el.dataset.alt;
-            }
-        },
-    });
-    lazyLoadImage.observe();
-
-    const mode = document.getElementById("mode");
+    const mode = document.getElementById("mode") as HTMLElement;
     const githubIcon = document.getElementById("github-icon");
     const githubIcon1 = document.getElementById("github-icon-1");
     const rss = document.getElementById("rss");
-    const chromaTheme = document.getElementById("chroma-theme");
+    const chromaTheme = document.getElementById(
+        "chroma-theme"
+    ) as HTMLLinkElement;
 
     mode.addEventListener("click", function () {
         const currentMode = mode.textContent;
@@ -109,43 +106,18 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-const connectMetamask = document.getElementById("connect-metamask");
-const connectPhantom = document.getElementById("connect-phantom");
-let currentWallet = "";
+const connectMetamask = document.getElementById(
+    "connect-metamask"
+) as HTMLButtonElement;
 
 let accounts = [];
 
-if (typeof window.ethereum === "undefined") {
+const anyWindow: any = window;
+if (typeof anyWindow.ethereum === "undefined") {
     connectMetamask.disabled = true;
 }
 
-var provider;
-
-var connection = new solanaWeb3.Connection(
-    solanaWeb3.clusterApiUrl("devnet"),
-    "confirmed"
-);
-
-const createTransferTransaction = async () => {
-    var to = new solanaWeb3.PublicKey(
-        "9ZZoqoTfzMvpzeM719AbDnxdTBGaz2UYK77ZCwb5CQDD"
-    );
-
-    var transaction = new solanaWeb3.Transaction().add(
-        solanaWeb3.SystemProgram.transfer({
-            fromPubkey: provider.publicKey,
-            toPubkey: to,
-            lamports: 0.0125 * solanaWeb3.LAMPORTS_PER_SOL,
-        })
-    );
-
-    transaction.feePayer = provider.publicKey;
-    transaction.recentBlockhash = (
-        await connection.getRecentBlockhash()
-    ).blockhash;
-
-    return transaction;
-};
+var ethereum: any;
 
 connectMetamask.addEventListener("click", async () => {
     getMetamaskAccount();
@@ -170,50 +142,3 @@ async function getMetamaskAccount() {
         method: "eth_requestAccounts",
     });
 }
-
-connectPhantom.addEventListener("click", async () => {
-    await getPhantomAccount();
-
-    try {
-        const transaction = await createTransferTransaction();
-
-        if (!transaction) {
-            return;
-        }
-
-        let signed = await provider.signTransaction(transaction);
-        let signature = await connection.sendRawTransaction(signed.serialize());
-        await connection.confirmTransaction(signature);
-    } catch (err) {
-        console.error(err);
-    }
-});
-
-async function getPhantomAccount() {
-    try {
-        await window.solana.connect();
-    } catch (err) {
-        console.error(err);
-    }
-}
-
-const getProvider = async () => {
-    if ("solana" in window) {
-        const provider = window.solana;
-        if (provider.isPhantom) {
-            return provider;
-        }
-    } else {
-        connectPhantom.disabled = true;
-    }
-};
-
-window.onload = () => {
-    getProvider()
-        .then((result) => {
-            provider = result;
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
-};

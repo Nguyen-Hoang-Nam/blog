@@ -1,0 +1,21 @@
+{
+    "scripts": {
+        "start": "webpack --mode=development --watch",
+        "build": "rm -rf static/js && webpack --mode=production"
+    },
+    "type": "module",
+    "devDependencies": {
+        "@types/lozad": "^1.16.1",
+        "css-loader": "^6.7.1",
+        "css-minimizer-webpack-plugin": "^3.4.1",
+        "mini-css-extract-plugin": "^2.6.0",
+        "terser-webpack-plugin": "^5.3.1",
+        "ts-loader": "^9.2.8",
+        "webpack": "^5.70.0",
+        "webpack-cli": "^4.9.2"
+    },
+    "dependencies": {
+        "@solana/web3.js": "^1.36.0",
+        "lozad": "^1.16.0"
+    }
+}
