@@ -2,6 +2,7 @@ import path from "path";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import TerserPlugin from "terser-webpack-plugin";
+// import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 
 export default {
     mode: "production",
@@ -10,11 +11,13 @@ export default {
         solana: path.resolve("src", "js", "solana.ts"),
         lazyLoad: path.resolve("src", "js", "lazyLoad.ts"),
     },
+
     devtool: "source-map",
     output: {
         filename: "[name].bundle.js",
         path: path.resolve("static", "js"),
     },
+
     module: {
         rules: [
             {
@@ -44,9 +47,24 @@ export default {
                 parallel: true,
             }),
         ],
+
+        runtimeChunk: "single",
+
         splitChunks: {
-            chunks: "all",
+            cacheGroups: {
+                vendor: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: "vendors",
+                    chunks: "all",
+                },
+            },
         },
     },
-    plugins: [new MiniCssExtractPlugin()],
+
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "../css/[name].css",
+        }),
+        // new BundleAnalyzerPlugin()
+    ],
 };
