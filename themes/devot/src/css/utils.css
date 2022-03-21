@@ -1,0 +1,66 @@
+.flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-item-center {
+    align-items: center;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.font-serif {
+    font-family: "Lora", serif;
+}
+
+.font-sans-serif {
+    font-family: "Inter", sans-serif;
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.primary-color {
+    color: var(--primary-color) !important;
+}
+
+.secondary-color {
+    color: var(--secondary-color) !important;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.sticky-table {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+}
+
+.active {
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+}
+
+.disable {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}

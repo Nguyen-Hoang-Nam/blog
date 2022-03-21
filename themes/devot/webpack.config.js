@@ -9,6 +9,7 @@ export default {
     entry: {
         index: path.resolve("src", "js", "index.ts"),
         solana: path.resolve("src", "js", "solana.ts"),
+        ethereum: path.resolve("src", "js", "ethereum.ts"),
         lazyLoad: path.resolve("src", "js", "lazyLoad.ts"),
     },
 

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" href="/images/logo.ico" />
+    <link rel="apple-touch-icon" href="/images/logo.ico" />
+
+    
+    <meta property="og:type" content="website" />
+
+    
+    <meta name="twitter:card" content="summary_large_image" key="twcard" />
+     
+    <meta
+        name="twitter:site"
+        content="@nguyenh79185323"
+        key="twhandle"
+    />
+     
+    <title>DevOT blog | Series Microservices: Bắt đầu với Microservices</title>
+
+    
+    <meta name="keywords" content="microservices," />
+    
+
+    <meta property="og:url" content="https://devot.netlify.app/posts/series-microservices-beginning-microservices/" />
+    <meta
+        property="og:title"
+        content="Series Microservices: Bắt đầu với Microservices &middot; DevOT blog"
+    />
+
+    <meta name="description" content="Có lẽ Microservices không còn là một thuật ngữ quá mới đối với Dev nữa khi mà ngày càng nhiều Framework, Platform hỗ trợ kiến trúc này. Vì vậy, để các bạn mới bắt đầu với kiến trúc này có thể tìm hiểu về nó, mình quyết định bắt đầu 1 Series nhỏ giới thiệu qua những khái niệm cũng như những thứ hay hó khác. Nếu bạn đã sẵn sàng thì chúng ta bắt đầu nào." />
+    
+    <meta name="og:description" content="Có lẽ Microservices không còn là một thuật ngữ quá mới đối với Dev nữa khi mà ngày càng nhiều Framework, Platform hỗ trợ kiến trúc này. Vì vậy, để các bạn mới bắt đầu với kiến trúc này có thể tìm hiểu về nó, mình quyết định bắt đầu 1 Series nhỏ giới thiệu qua những khái niệm cũng như những thứ hay hó khác. Nếu bạn đã sẵn sàng thì chúng ta bắt đầu nào." />
+     
+    <meta
+        property="og:image"
+        content="https://devot.netlify.app/posts/series-microservices-beginning-microservices/cover.webp"
+        key="ogimage"
+    />
+    
+
+    <link rel="canonical" href="https://devot.netlify.app/posts/series-microservices-beginning-microservices/" />
+    
+
+    <meta name="theme-color" content="#f2f2f2" />
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-48E9108RES"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-48E9108RES', { 'anonymize_ip': false });
+}
+</script>
+
+
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="/css/syntax-light.css"
+        id="chroma-theme"
+    />
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora&display=swap"
+        rel="stylesheet"
+    />
+</head>
+<body class="flex flex-column" id="body"><div class="header">
+        
+
+    <img
+        data-src="cover.webp"
+        id="header-img"
+        class="lozad header-img"
+        data-alt="Profile"
+    />
+</div>
+
+
+<p
+    class="text-align-center font-serif font-normal secondary-color header-credit"
+>
+    Photo by
+    <a href="https://unsplash.com/@heytowner?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">JOHN TOWNER</a>
+    on <a href="https://unsplash.com/s/photos/forest?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+</p>
+
+
+<div class="flex main">
+    <div class="flex position-relative main-container"><div
+    class="flex flex-column align-item-center font-sans-serif font-normal sidebar"
+>
+    <div class="sticky-table">
+        <div class="position-relative sidebar-avatar">
+            <img
+                src="/images/avatar.webp"
+                class="sidebar-avatar-img"
+                alt="Avatar"
+                width="200"
+                height="200"
+            />
+
+            <div id="mode"></div>
+        </div>
+
+        <div class="text-align-center font-bold sidebar-title">
+            <a href="/">DevOT blog</a>
+            <a class="sidebar-rss" href="/feed.xml" aria-label="">
+                <img
+                    id="rss"
+                    class=""
+                    src="/images/rss-light.png"
+                    alt="RSS"
+                    width="16"
+                    height="16"
+                />
+            </a>
+             
+        </div>
+
+        <div
+            class="text-align-center font-sans-serif font-normal primary-color sidebar-language"
+        >
+            
+            <p>vn</p>
+            /
+            <a href="/en/posts/series-microservices-beginning-microservices/">en</a>
+            
+        </div>
+
+        <div class="flex align-item-center sidebar-social">
+            <a
+                class="primary-color resp-sharing-button__link"
+                href="https://github.com/Nguyen-Hoang-Nam"
+                target="_blank"
+                rel="noopener"
+                aria-label="Github profile"
+            >
+                <img
+                    id="github-icon-1"
+                    class="social-icon"
+                    src="/images/GitHub-Mark-32px.png"
+                    alt="Github"
+                    width="20"
+                    height="20"
+                />
+            </a>
+
+            <a
+                class="primary-color resp-sharing-button__link"
+                href="https://www.linkedin.com/in/nam-nguy%E1%BB%85n-5b05711bb/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Linkedin profile"
+            >
+                <div
+                    class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"
+                >
+                    <div
+                        aria-hidden="true"
+                        class="resp-sharing-button__icon resp-sharing-button__icon--solid"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+
+            <a
+                class="primary-color resp-sharing-button__link"
+                href="https://www.facebook.com/profile.php?id=100064522001764"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook profile"
+            >
+                <div
+                    class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"
+                >
+                    <div
+                        aria-hidden="true"
+                        class="resp-sharing-button__icon resp-sharing-button__icon--solid"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+
+            <a
+                class="primary-color resp-sharing-button__link"
+                href="https://twitter.com/nguyenh79185323"
+                target="_blank"
+                rel="noopener"
+                aria-label="Twitter profile"
+            >
+                <div
+                    class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"
+                >
+                    <div
+                        aria-hidden="true"
+                        class="resp-sharing-button__icon resp-sharing-button__icon--solid"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="sponsor">
+            <p class="text-align-center">Buy me a coffee</p>
+            <div class="flex sponsor-container">
+                <button
+                    class="font-sans-serif font-bold text-align-center sponsor-button"
+                    id="connect-metamask"
+                >
+                    ETH
+                </button>
+                <button
+                    class="font-sans-serif font-bold text-align-center sponsor-button"
+                    id="connect-phantom"
+                >
+                    SOL
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="font-serif content">
+            <div class="position-relative content-container">
+                <h1>Series Microservices: Bắt đầu với Microservices</h1>
+                 
+<time datetime="2022-03-06">Mar 6, 2022</time>
+
+
+                <br /><br />
+
+                <p>Có lẽ Microservices không còn là một thuật ngữ quá mới đối với Dev nữa khi mà ngày càng nhiều Framework,
+Platform hỗ trợ kiến trúc này. Vì vậy, để các bạn mới bắt đầu với kiến trúc này có thể tìm hiểu về nó,
+mình quyết định bắt đầu 1 Series nhỏ giới thiệu qua những khái niệm cũng như những thứ hay hó khác.
+Nếu bạn đã sẵn sàng thì chúng ta bắt đầu nào.</p>
+<h2 id="microservices-là-gì-nhỉ">
+    
+        <a href="#microservices-l%c3%a0-g%c3%ac-nh%e1%bb%89">#</a>
+        Microservices là gì nhỉ?
+    
+</h2>
+<p>Khác với những kiến trúc hay những Design Pattern khi mà nó thường bao hàm cách để có thể tự mình implement
+lại được. Microservices có vẻ mập mờ hơn, điểm chung lớn nhất của những người nói họ thiết kế hệ thống theo
+Microservices là hệ thống gồm rất nhiều Project và chúng dùng API để giao tiếp với nhau.</p>
+<p>Sự mập mờ còn từ chữ &ldquo;micro&rdquo; nữa, từ này thể hiện là chúng ta cần chia hệ thống thành rất nhiều phần nhỏ,
+nhưng nhỏ tới thế nào thì lại không rõ lắm. Chia nhỏ tới từng Function hay từng Class thì có vẻ không ổn lắm,
+vậy kiến trúc MVC cũng chia hệ thống thành 3 phần nhỏ hơn thì có thể gọi là Microservices không nhỉ?</p>
+<p>Thậm chí nguồn gốc của kiến trúc Microservices cũng rất mập mờ. Khi mà nhiều công ty lớn về lập trình cho
+rằng họ đã sử dụng kiến trúc này từ vài thập kỉ về trước, nếu như vậy xem chừng kiến trúc này cũng không
+hẳn là đột phá lắm. Vậy lý do nào khiến nó được chú ý ở thời điểm hiện tại như vậy?</p>
+<p>Xem chừng dù chưa trả lời được câu hỏi Microservices là gì thì chúng ta đã gặp hàng đống vấn đề khác rồi.
+Vì vậy mình nghĩ cách tiếp cận tốt nhất với Microservices là xem những ông lớn trong ngành đang dùng nó
+như thế nào. Nổi tiếng nhất có thể kể tới ông lớn Netflix, không chỉ có những Series phim hay, công ty
+này cũng đóng góp cho cộng đồng nhiều những Framework để implement các service trong kiến trúc Microservices.
+Họ còn thuyết trình về hệ thống đó nữa, và mình recommend bạn nên xem qua nó để hình dung sơ qua
+vấn đề mà Netflix đã giải quyết với kiến trúc Microservervice.</p>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/CZ3wIuvmHeM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>Thì như ta thấy các Service trong kiến trúc Microservices này độc lập với nhau, chúng gọi nhau qua các
+API là các protocol như HTTP, GRPC, Thrift, Websocket hay những cơ chế Pub/Sub. Các Service này cũng
+có tính đóng gói để dễ dàng đóng thành các Container riêng. Các Service này cũng xử lý logic, business
+hoặc trung chuyển dữ liệu, chúng có thể sử dụng DB hoặc không.</p>
+<p>Thì với cách hiểu ở trên thì rõ ràng không hề có 1 chỗ nào nói các Service sẽ phải nhỏ cả, mình nghĩ
+đây là một nhầm lẫn mà ta thường gặp phải.</p>
+<h2 id="chuẩn-bị-nguyên-liệu-chính">
+    
+        <a href="#chu%e1%ba%a9n-b%e1%bb%8b-nguy%c3%aan-li%e1%bb%87u-ch%c3%adnh">#</a>
+        Chuẩn bị nguyên liệu chính
+    
+</h2>
+<p>Để làm gỏi món Microservices này, thì mình nghĩ một số nguyên liệu sau đây có thể sẽ rất là cần thiết.
+Tất nhiên là bạn có thể không cần dùng hết tất cả nếu hệ thống của bạn vẫn vận hành ổn.</p>
+<h3 id="gateway">
+    
+        <a href="#gateway">#</a>
+        Gateway
+    
+</h3>
+<p>Như mình có nói ở trên thì các Service độc lập và giao tiếp qua tầng Network, vậy trừ khi bạn quyết
+định để mỗi Service publish một IP riêng ra bên ngoài vì không thể tranh nhau cùng một Port được.
+Thì Gateway xem chừng là một thứ không thể thiếu được, nó sẽ handle việc Reverse Proxy cũng như Load
+Balance. Mỗi Request từ phía client đều sẽ phải đi qua Gateway, và nó sẽ phần chia request tới chính
+xác Service. Chính vì Gateway cũng làm việc độc lập và giao tiếp qua Network, nên Gateway thường sẽ
+là một Service trong hệ thống.</p>
+<h3 id="service-discovery">
+    
+        <a href="#service-discovery">#</a>
+        Service Discovery
+    
+</h3>
+<p>Một điểm mạnh của kiến trúc Microservices đó là khả năng Scale của nó, mỗi Service độc lập, việc bạn
+Scale một Service lên sẽ không ảnh hưởng tới các Service khác. Nhưng đồng thời điều này cũng mang
+tới thách thức về việc các Service gọi nhau khi mà không biết được Port hoặc chí là IP của Service
+sau khi Scale. Để giải quyết vấn đề này thì ta thường sẽ sử dụng một Service là Service Discovery,
+nhiệm vụ chính của Service này là lưu thông tin về Port cũng như IP của tất cả Service trong hệ thống,
+khi có Service cần gọi cho Service thì sẽ gửi request lên Service Discovery để tìm thông về Service
+mà nó cần gọi. Do Service Discovery giải quyết một vấn đề tương đối quan trọng nên đa số hệ thống
+Microservices đều sẽ có một Service làm nhiệm vụ này.</p>
+<h2 id="chuẩn-bị-thêm-gia-vị">
+    
+        <a href="#chu%e1%ba%a9n-b%e1%bb%8b-th%c3%aam-gia-v%e1%bb%8b">#</a>
+        Chuẩn bị thêm gia vị
+    
+</h2>
+<p>Để giúp món ăn Microservices được ngon thì bạn có thể sử dụng thêm một số gia vị sau đây, chúng thường
+không bắt buộc nhưng giúp bạn giải quyết một số những vấn đề thường gặp trong Microservices.</p>
+<h3 id="distributed-tracing">
+    
+        <a href="#distributed-tracing">#</a>
+        Distributed Tracing
+    
+</h3>
+<p>Một vấn đề lớn khi bạn sử dụng kiến trúc Microservices đó là việc có quá nhiều kịch bản và khi có Bug,
+bạn không thể Debug cả hệ thống được. Có nhiều nguyên nhân của vấn đề này, một trong đó là việc các
+Service giao tiếp với nhau qua Network, thì Distributed Tracing sẽ giải quyết vấn đề này bằng cách
+truy vết các request hết một vòng đời của request đó. Tất nhiên việc này sẽ làm chậm request được gửi
+tới nên thường Distributed Tracing đi kèm với khả năng cấu hình phần trăm request được truy vết.</p>
+<h3 id="circuit-breaker">
+    
+        <a href="#circuit-breaker">#</a>
+        Circuit Breaker
+    
+</h3>
+<p>Đây là cầu giao của hệ thống, chúng giải quyết vấn đề về kịch bản khi có một Service bị lỗi và ngừng
+hoạt động. Tuy là các Service độc lập nhưng việc các Service đột ngột không gọi cho nhau được cũng
+gây ra nhiều kịch bản mới, thì Circuit Breaker giúp bạn handle bớt kịch bản liên quan tới việc
+Service được gọi tối ngưng hoạt động.</p>
+<h2 id="so-sánh">
+    
+        <a href="#so-s%c3%a1nh">#</a>
+        So sánh
+    
+</h2>
+<p>Thường khi nhắc tới so sánh kiến trúc Microservices thì ta sẽ nghĩ ngay tới Monolith, điều này cũng
+không lạ lắm vì 2 kiến trúc này hoàn toàn ngược nhau và việc so sánh sẽ dễ làm bật ra tính chất
+của cả 2.</p>
+<h3 id="microservices">
+    
+        <a href="#microservices">#</a>
+        Microservices
+    
+</h3>
+<h4 id="điểm-mạnh">
+    
+        Điểm mạnh
+    
+</h4>
+<p>Khả năng Scale là thứ mà chắc là nhiều bạn cũng nghe quảng cáo rồi, thì kiến trúc Microservices làm
+điều này rất là tốt, mỗi Service độc lập nhau nên đóng gói thành Container dễ dàng. Về mặt thay đổi
+tính năng cũng tương đối dễ dàng khi chỉ cần tạo một Service mới bên cạnh các Service cũ và điều
+hướng người dùng từ từ qua tính năng mới thay vì phải đóng Website để bảo trì.</p>
+<h4 id="điểm-yếu">
+    
+        Điểm yếu
+    
+</h4>
+<p>Việc tạo nhiều Service như vậy khiến chạy sản phẩm dưới Local tương đối khó khăn, nếu bạn sử dụng
+Java Spring Boot thì sẽ bị choáng với lượng Ram mà cả hệ thống cần do mỗi Service lại cần 1 JVM
+riêng, Garbage Collector riêng. Do các ngôn ngữ đều tối ưu cho chính Project biên dịch thôi, nên
+việc chạy hệ thống gồm nhiều Project sẽ tốn nhiều tài nguyên hơn chạy một Project lớn. CI/CD cho
+Microservices cũng tốn thời gian nhiều hơn và từ đó chi phí vận hành hệ thống cũng tăng lên.</p>
+<p>Việc các Service giao tiếp với nhau qua Network cũng tăng độ Delay của hệ thống khi xử lý Request
+của Client. Ngoài ra cách giao tiếp này cũng rất khó Debug cũng như tìm ra lỗi, khi một Request có
+thể phải đi qua nhiều Service tạo ra nhiều kịch bản khác nhau.</p>
+<h3 id="monolith">
+    
+        <a href="#monolith">#</a>
+        Monolith
+    
+</h3>
+<p>Ngược lại với cái trên nên thôi mình không ghi nha 😅.</p>
+<h2 id="tổng-kết-thôi">
+    
+        <a href="#t%e1%bb%95ng-k%e1%ba%bft-th%c3%b4i">#</a>
+        Tổng kết thôi
+    
+</h2>
+<p>Bài viết đầu tiên trong Series mang tính chủ yếu là thảo luận về Microservices, trả lời một số
+câu hỏi có thể các bạn thắc mắc. Cùng như giới thiệu một vài khái niệm sẽ được làm rõ hơn trong
+những bài viết sau.</p>
+            </div>
+
+            <div class="flex content-footer">
+                <div class="flex tags"><a href="https://devot.netlify.app/tags/microservices/">#microservices</a>
+    </div>
+ <div class="flex social">
+      
+
+    
+    <a
+        class="primary-color resp-sharing-button__link"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fdevot.netlify.app%2fposts%2fseries-microservices-beginning-microservices%2f"
+        target="_blank"
+        rel="noopener"
+        aria-label="Facebook share"
+    >
+        <div
+            class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"
+        >
+            <div
+                aria-hidden="true"
+                class="resp-sharing-button__icon resp-sharing-button__icon--solid"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"
+                    />
+                </svg>
+            </div>
+        </div>
+    </a>
+
+    
+    <a
+        class="primary-color resp-sharing-button__link"
+        href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fdevot.netlify.app%2fposts%2fseries-microservices-beginning-microservices%2f&text=Series%20Microservices%3a%20B%e1%ba%aft%20%c4%91%e1%ba%a7u%20v%e1%bb%9bi%20Microservices&via="
+        target="_blank"
+        rel="noopener"
+        aria-label="Twitter share"
+    >
+        <div
+            class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"
+        >
+            <div
+                aria-hidden="true"
+                class="resp-sharing-button__icon resp-sharing-button__icon--solid"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z"
+                    />
+                </svg>
+            </div>
+        </div>
+    </a>
+
+    
+    <a
+        class="primary-color resp-sharing-button__link"
+        href="mailto:?subject=Check%20out%20Series%20Microservices%3a%20B%e1%ba%aft%20%c4%91%e1%ba%a7u%20v%e1%bb%9bi%20Microservices.&body=Series%20Microservices%3a%20B%e1%ba%aft%20%c4%91%e1%ba%a7u%20v%e1%bb%9bi%20Microservices%2c%20by%20DevOT%20blog%0aC%c3%b3%20l%e1%ba%bd%20Microservices%20kh%c3%b4ng%20c%c3%b2n%20l%c3%a0%20m%e1%bb%99t%20thu%e1%ba%adt%20ng%e1%bb%af%20qu%c3%a1%20m%e1%bb%9bi%20%c4%91%e1%bb%91i%20v%e1%bb%9bi%20Dev%20n%e1%bb%afa%20khi%20m%c3%a0%20ng%c3%a0y%20c%c3%a0ng%20nhi%e1%bb%81u%20Framework%2c%20Platform%20h%e1%bb%97%20tr%e1%bb%a3%20ki%e1%ba%bfn%20tr%c3%bac%20n%c3%a0y.%20V%c3%ac%20v%e1%ba%ady%2c%20%c4%91%e1%bb%83%20c%c3%a1c%20b%e1%ba%a1n%20m%e1%bb%9bi%20b%e1%ba%aft%20%c4%91%e1%ba%a7u%20v%e1%bb%9bi%20ki%e1%ba%bfn%20tr%c3%bac%20n%c3%a0y%20c%c3%b3%20th%e1%bb%83%20t%c3%acm%20hi%e1%bb%83u%20v%e1%bb%81%20n%c3%b3%2c%20m%c3%acnh%20quy%e1%ba%bft%20%c4%91%e1%bb%8bnh%20b%e1%ba%aft%20%c4%91%e1%ba%a7u%201%20Series%20nh%e1%bb%8f%20gi%e1%bb%9bi%20thi%e1%bb%87u%20qua%20nh%e1%bb%afng%20kh%c3%a1i%20ni%e1%bb%87m%20c%c5%a9ng%20nh%c6%b0%20nh%e1%bb%afng%20th%e1%bb%a9%20hay%20h%c3%b3%20kh%c3%a1c.%20N%e1%ba%bfu%20b%e1%ba%a1n%20%c4%91%c3%a3%20s%e1%ba%b5n%20s%c3%a0ng%20th%c3%ac%20ch%c3%bang%20ta%20b%e1%ba%aft%20%c4%91%e1%ba%a7u%20n%c3%a0o.%0a%0ahttps%3a%2f%2fdevot.netlify.app%2fposts%2fseries-microservices-beginning-microservices%2f%0a"
+        target="_self"
+        rel="noopener"
+        aria-label="Mail share"
+    >
+        <div
+            class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"
+        >
+            <div
+                aria-hidden="true"
+                class="resp-sharing-button__icon resp-sharing-button__icon--solid"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M22 4H2C.9 4 0 4.9 0 6v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM7.25 14.43l-3.5 2c-.08.05-.17.07-.25.07-.17 0-.34-.1-.43-.25-.14-.24-.06-.55.18-.68l3.5-2c.24-.14.55-.06.68.18.14.24.06.55-.18.68zm4.75.07c-.1 0-.2-.03-.27-.08l-8.5-5.5c-.23-.15-.3-.46-.15-.7.15-.22.46-.3.7-.14L12 13.4l8.23-5.32c.23-.15.54-.08.7.15.14.23.07.54-.16.7l-8.5 5.5c-.08.04-.17.07-.27.07zm8.93 1.75c-.1.16-.26.25-.43.25-.08 0-.17-.02-.25-.07l-3.5-2c-.24-.13-.32-.44-.18-.68s.44-.32.68-.18l3.5 2c.24.13.32.44.18.68z"
+                    />
+                </svg>
+            </div>
+        </div>
+    </a>
+
+    
+    <a
+        class="primary-color resp-sharing-button__link"
+        href="https://reddit.com/submit/?url=https%3a%2f%2fdevot.netlify.app%2fposts%2fseries-microservices-beginning-microservices%2f;resubmit=true&amp;title=Series%20Microservices%3a%20B%e1%ba%aft%20%c4%91%e1%ba%a7u%20v%e1%bb%9bi%20Microservices"
+        target="_blank"
+        rel="noopener"
+        aria-label="Reddit share"
+    >
+        <div
+            class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"
+        >
+            <div
+                aria-hidden="true"
+                class="resp-sharing-button__icon resp-sharing-button__icon--solid"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"
+                    />
+                </svg>
+            </div>
+        </div>
+    </a>
+</div>
+
+            </div>
+
+            <div class="comments-container">
+                <script
+    src="https://utteranc.es/client.js"
+    repo="Nguyen-Hoang-Nam/blog"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    id="comment-script"
+    async
+></script>
+
+            </div>
+        </div>
+
+        
+<div class="font-sans-serif position-absolute table-of-content">
+    <div class="sticky-table">
+        <h3>Table of contents</h3>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#microservices-là-gì-nhỉ">Microservices là gì nhỉ?</a></li>
+    <li><a href="#chuẩn-bị-nguyên-liệu-chính">Chuẩn bị nguyên liệu chính</a>
+      <ul>
+        <li><a href="#gateway">Gateway</a></li>
+        <li><a href="#service-discovery">Service Discovery</a></li>
+      </ul>
+    </li>
+    <li><a href="#chuẩn-bị-thêm-gia-vị">Chuẩn bị thêm gia vị</a>
+      <ul>
+        <li><a href="#distributed-tracing">Distributed Tracing</a></li>
+        <li><a href="#circuit-breaker">Circuit Breaker</a></li>
+      </ul>
+    </li>
+    <li><a href="#so-sánh">So sánh</a>
+      <ul>
+        <li><a href="#microservices">Microservices</a></li>
+        <li><a href="#monolith">Monolith</a></li>
+      </ul>
+    </li>
+    <li><a href="#tổng-kết-thôi">Tổng kết thôi</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+
+    </div>
+</div>
+<div
+    class="flex align-item-center font-sans-serif font-normal secondary-color footer"
+>
+    <div>Copyright (c) 2022 Nguyen Hoang Nam</div>
+
+    <div class="footer-icon">
+        <a href="https://github.com/Nguyen-Hoang-Nam/blog">
+            <img
+                id="github-icon"
+                src="/images/GitHub-Mark-32px.png"
+                width="20"
+                height="20"
+                alt="Github"
+            />
+        </a>
+    </div>
+</div>
+<script src="/js/lazyLoad.bundle.js"></script>
+<script src="/js/index.bundle.js"></script>
+<script src="/js/solana.bundle.js"></script>
+<script src="/js/vendors.bundle.js"></script>
+<script src="/js/runtime.bundle.js"></script>
+<script>
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+            .register("service-worker.js", {
+                scope: "/",
+            })
+            .then(function (registration) {
+                console.log("Service Worker Registered");
+            });
+
+        navigator.serviceWorker.ready.then(function (registration) {
+            console.log("Service Worker Ready");
+        });
+    }
+</script>
+
+</body>
+</html>

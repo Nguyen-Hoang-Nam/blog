@@ -1,0 +1,19 @@
+{
+    "short_name": "DevOT",
+    "name": "DevOT blog",
+    "theme_color": "#f2f2f2",
+    "icons": [
+        {
+            "src": "/images/logo.png",
+            "type": "image/png",
+            "sizes": "128x182",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/logo-512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        }
+    ]
+}

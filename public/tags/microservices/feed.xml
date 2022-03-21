@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>microservices on DevOT blog</title>
+		<link>https://devot.netlify.app/tags/microservices/</link>
+		<description>Recent content in microservices on DevOT blog</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<lastBuildDate>Sun, 06 Mar 2022 12:51:24 +0700</lastBuildDate>
+		
+		<atom:link href="https://devot.netlify.app/tags/microservices/feed.xml" rel="self" type="application/rss+xml" />
+		
+		
+		<item>
+			<title>Series Microservices: Bắt đầu với Microservices</title>
+			<link>https://devot.netlify.app/posts/series-microservices-beginning-microservices/</link>
+			<pubDate>Sun, 06 Mar 2022 12:51:24 +0700</pubDate>
+			
+			<guid>https://devot.netlify.app/posts/series-microservices-beginning-microservices/</guid>
+			<description>&lt;p&gt;Có lẽ Microservices không còn là một thuật ngữ quá mới đối với Dev nữa khi mà ngày càng nhiều Framework,
+Platform hỗ trợ kiến trúc này. Vì vậy, để các bạn mới bắt đầu với kiến trúc này có thể tìm hiểu về nó,
+mình quyết định bắt đầu 1 Series nhỏ giới thiệu qua những khái niệm cũng như những thứ hay hó khác.
+Nếu bạn đã sẵn sàng thì chúng ta bắt đầu nào.&lt;/p&gt;
+&lt;h2 id=&#34;microservices-là-gì-nhỉ&#34;&gt;
+    
+        &lt;a href=&#34;#microservices-l%c3%a0-g%c3%ac-nh%e1%bb%89&#34;&gt;#&lt;/a&gt;
+        Microservices là gì nhỉ?
+    
+&lt;/h2&gt;
+&lt;p&gt;Khác với những kiến trúc hay những Design Pattern khi mà nó thường bao hàm cách để có thể tự mình implement
+lại được. Microservices có vẻ mập mờ hơn, điểm chung lớn nhất của những người nói họ thiết kế hệ thống theo
+Microservices là hệ thống gồm rất nhiều Project và chúng dùng API để giao tiếp với nhau.&lt;/p&gt;
+&lt;p&gt;Sự mập mờ còn từ chữ &amp;ldquo;micro&amp;rdquo; nữa, từ này thể hiện là chúng ta cần chia hệ thống thành rất nhiều phần nhỏ,
+nhưng nhỏ tới thế nào thì lại không rõ lắm. Chia nhỏ tới từng Function hay từng Class thì có vẻ không ổn lắm,
+vậy kiến trúc MVC cũng chia hệ thống thành 3 phần nhỏ hơn thì có thể gọi là Microservices không nhỉ?&lt;/p&gt;
+&lt;p&gt;Thậm chí nguồn gốc của kiến trúc Microservices cũng rất mập mờ. Khi mà nhiều công ty lớn về lập trình cho
+rằng họ đã sử dụng kiến trúc này từ vài thập kỉ về trước, nếu như vậy xem chừng kiến trúc này cũng không
+hẳn là đột phá lắm. Vậy lý do nào khiến nó được chú ý ở thời điểm hiện tại như vậy?&lt;/p&gt;
+&lt;p&gt;Xem chừng dù chưa trả lời được câu hỏi Microservices là gì thì chúng ta đã gặp hàng đống vấn đề khác rồi.
+Vì vậy mình nghĩ cách tiếp cận tốt nhất với Microservices là xem những ông lớn trong ngành đang dùng nó
+như thế nào. Nổi tiếng nhất có thể kể tới ông lớn Netflix, không chỉ có những Series phim hay, công ty
+này cũng đóng góp cho cộng đồng nhiều những Framework để implement các service trong kiến trúc Microservices.
+Họ còn thuyết trình về hệ thống đó nữa, và mình recommend bạn nên xem qua nó để hình dung sơ qua
+vấn đề mà Netflix đã giải quyết với kiến trúc Microservervice.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/CZ3wIuvmHeM&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Thì như ta thấy các Service trong kiến trúc Microservices này độc lập với nhau, chúng gọi nhau qua các
+API là các protocol như HTTP, GRPC, Thrift, Websocket hay những cơ chế Pub/Sub. Các Service này cũng
+có tính đóng gói để dễ dàng đóng thành các Container riêng. Các Service này cũng xử lý logic, business
+hoặc trung chuyển dữ liệu, chúng có thể sử dụng DB hoặc không.&lt;/p&gt;
+&lt;p&gt;Thì với cách hiểu ở trên thì rõ ràng không hề có 1 chỗ nào nói các Service sẽ phải nhỏ cả, mình nghĩ
+đây là một nhầm lẫn mà ta thường gặp phải.&lt;/p&gt;
+&lt;h2 id=&#34;chuẩn-bị-nguyên-liệu-chính&#34;&gt;
+    
+        &lt;a href=&#34;#chu%e1%ba%a9n-b%e1%bb%8b-nguy%c3%aan-li%e1%bb%87u-ch%c3%adnh&#34;&gt;#&lt;/a&gt;
+        Chuẩn bị nguyên liệu chính
+    
+&lt;/h2&gt;
+&lt;p&gt;Để làm gỏi món Microservices này, thì mình nghĩ một số nguyên liệu sau đây có thể sẽ rất là cần thiết.
+Tất nhiên là bạn có thể không cần dùng hết tất cả nếu hệ thống của bạn vẫn vận hành ổn.&lt;/p&gt;
+&lt;h3 id=&#34;gateway&#34;&gt;
+    
+        &lt;a href=&#34;#gateway&#34;&gt;#&lt;/a&gt;
+        Gateway
+    
+&lt;/h3&gt;
+&lt;p&gt;Như mình có nói ở trên thì các Service độc lập và giao tiếp qua tầng Network, vậy trừ khi bạn quyết
+định để mỗi Service publish một IP riêng ra bên ngoài vì không thể tranh nhau cùng một Port được.
+Thì Gateway xem chừng là một thứ không thể thiếu được, nó sẽ handle việc Reverse Proxy cũng như Load
+Balance. Mỗi Request từ phía client đều sẽ phải đi qua Gateway, và nó sẽ phần chia request tới chính
+xác Service. Chính vì Gateway cũng làm việc độc lập và giao tiếp qua Network, nên Gateway thường sẽ
+là một Service trong hệ thống.&lt;/p&gt;
+&lt;h3 id=&#34;service-discovery&#34;&gt;
+    
+        &lt;a href=&#34;#service-discovery&#34;&gt;#&lt;/a&gt;
+        Service Discovery
+    
+&lt;/h3&gt;
+&lt;p&gt;Một điểm mạnh của kiến trúc Microservices đó là khả năng Scale của nó, mỗi Service độc lập, việc bạn
+Scale một Service lên sẽ không ảnh hưởng tới các Service khác. Nhưng đồng thời điều này cũng mang
+tới thách thức về việc các Service gọi nhau khi mà không biết được Port hoặc chí là IP của Service
+sau khi Scale. Để giải quyết vấn đề này thì ta thường sẽ sử dụng một Service là Service Discovery,
+nhiệm vụ chính của Service này là lưu thông tin về Port cũng như IP của tất cả Service trong hệ thống,
+khi có Service cần gọi cho Service thì sẽ gửi request lên Service Discovery để tìm thông về Service
+mà nó cần gọi. Do Service Discovery giải quyết một vấn đề tương đối quan trọng nên đa số hệ thống
+Microservices đều sẽ có một Service làm nhiệm vụ này.&lt;/p&gt;
+&lt;h2 id=&#34;chuẩn-bị-thêm-gia-vị&#34;&gt;
+    
+        &lt;a href=&#34;#chu%e1%ba%a9n-b%e1%bb%8b-th%c3%aam-gia-v%e1%bb%8b&#34;&gt;#&lt;/a&gt;
+        Chuẩn bị thêm gia vị
+    
+&lt;/h2&gt;
+&lt;p&gt;Để giúp món ăn Microservices được ngon thì bạn có thể sử dụng thêm một số gia vị sau đây, chúng thường
+không bắt buộc nhưng giúp bạn giải quyết một số những vấn đề thường gặp trong Microservices.&lt;/p&gt;
+&lt;h3 id=&#34;distributed-tracing&#34;&gt;
+    
+        &lt;a href=&#34;#distributed-tracing&#34;&gt;#&lt;/a&gt;
+        Distributed Tracing
+    
+&lt;/h3&gt;
+&lt;p&gt;Một vấn đề lớn khi bạn sử dụng kiến trúc Microservices đó là việc có quá nhiều kịch bản và khi có Bug,
+bạn không thể Debug cả hệ thống được. Có nhiều nguyên nhân của vấn đề này, một trong đó là việc các
+Service giao tiếp với nhau qua Network, thì Distributed Tracing sẽ giải quyết vấn đề này bằng cách
+truy vết các request hết một vòng đời của request đó. Tất nhiên việc này sẽ làm chậm request được gửi
+tới nên thường Distributed Tracing đi kèm với khả năng cấu hình phần trăm request được truy vết.&lt;/p&gt;
+&lt;h3 id=&#34;circuit-breaker&#34;&gt;
+    
+        &lt;a href=&#34;#circuit-breaker&#34;&gt;#&lt;/a&gt;
+        Circuit Breaker
+    
+&lt;/h3&gt;
+&lt;p&gt;Đây là cầu giao của hệ thống, chúng giải quyết vấn đề về kịch bản khi có một Service bị lỗi và ngừng
+hoạt động. Tuy là các Service độc lập nhưng việc các Service đột ngột không gọi cho nhau được cũng
+gây ra nhiều kịch bản mới, thì Circuit Breaker giúp bạn handle bớt kịch bản liên quan tới việc
+Service được gọi tối ngưng hoạt động.&lt;/p&gt;
+&lt;h2 id=&#34;so-sánh&#34;&gt;
+    
+        &lt;a href=&#34;#so-s%c3%a1nh&#34;&gt;#&lt;/a&gt;
+        So sánh
+    
+&lt;/h2&gt;
+&lt;p&gt;Thường khi nhắc tới so sánh kiến trúc Microservices thì ta sẽ nghĩ ngay tới Monolith, điều này cũng
+không lạ lắm vì 2 kiến trúc này hoàn toàn ngược nhau và việc so sánh sẽ dễ làm bật ra tính chất
+của cả 2.&lt;/p&gt;
+&lt;h3 id=&#34;microservices&#34;&gt;
+    
+        &lt;a href=&#34;#microservices&#34;&gt;#&lt;/a&gt;
+        Microservices
+    
+&lt;/h3&gt;
+&lt;h4 id=&#34;điểm-mạnh&#34;&gt;
+    
+        Điểm mạnh
+    
+&lt;/h4&gt;
+&lt;p&gt;Khả năng Scale là thứ mà chắc là nhiều bạn cũng nghe quảng cáo rồi, thì kiến trúc Microservices làm
+điều này rất là tốt, mỗi Service độc lập nhau nên đóng gói thành Container dễ dàng. Về mặt thay đổi
+tính năng cũng tương đối dễ dàng khi chỉ cần tạo một Service mới bên cạnh các Service cũ và điều
+hướng người dùng từ từ qua tính năng mới thay vì phải đóng Website để bảo trì.&lt;/p&gt;
+&lt;h4 id=&#34;điểm-yếu&#34;&gt;
+    
+        Điểm yếu
+    
+&lt;/h4&gt;
+&lt;p&gt;Việc tạo nhiều Service như vậy khiến chạy sản phẩm dưới Local tương đối khó khăn, nếu bạn sử dụng
+Java Spring Boot thì sẽ bị choáng với lượng Ram mà cả hệ thống cần do mỗi Service lại cần 1 JVM
+riêng, Garbage Collector riêng. Do các ngôn ngữ đều tối ưu cho chính Project biên dịch thôi, nên
+việc chạy hệ thống gồm nhiều Project sẽ tốn nhiều tài nguyên hơn chạy một Project lớn. CI/CD cho
+Microservices cũng tốn thời gian nhiều hơn và từ đó chi phí vận hành hệ thống cũng tăng lên.&lt;/p&gt;
+&lt;p&gt;Việc các Service giao tiếp với nhau qua Network cũng tăng độ Delay của hệ thống khi xử lý Request
+của Client. Ngoài ra cách giao tiếp này cũng rất khó Debug cũng như tìm ra lỗi, khi một Request có
+thể phải đi qua nhiều Service tạo ra nhiều kịch bản khác nhau.&lt;/p&gt;
+&lt;h3 id=&#34;monolith&#34;&gt;
+    
+        &lt;a href=&#34;#monolith&#34;&gt;#&lt;/a&gt;
+        Monolith
+    
+&lt;/h3&gt;
+&lt;p&gt;Ngược lại với cái trên nên thôi mình không ghi nha 😅.&lt;/p&gt;
+&lt;h2 id=&#34;tổng-kết-thôi&#34;&gt;
+    
+        &lt;a href=&#34;#t%e1%bb%95ng-k%e1%ba%bft-th%c3%b4i&#34;&gt;#&lt;/a&gt;
+        Tổng kết thôi
+    
+&lt;/h2&gt;
+&lt;p&gt;Bài viết đầu tiên trong Series mang tính chủ yếu là thảo luận về Microservices, trả lời một số
+câu hỏi có thể các bạn thắc mắc. Cùng như giới thiệu một vài khái niệm sẽ được làm rõ hơn trong
+những bài viết sau.&lt;/p&gt;</description> 
+		</item>
+		
+	</channel>
+</rss>
+
