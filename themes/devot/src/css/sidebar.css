@@ -1,7 +1,5 @@
 .sidebar {
-    flex-basis: 200px;
-    flex-grow: 0;
-    flex-shrink: 0;
+    flex: 0 0 200px;
 }
 
 .sidebar-container {
@@ -71,7 +69,8 @@
 
 .sponsor p {
     font-size: 18px;
-    margin: 0 0 20px 0;
+    margin: 0 0 20px;
+    color: var(--primary-color);
 }
 
 .sponsor-container {
@@ -79,14 +78,19 @@
 }
 
 .sponsor-button {
-    padding: 0px;
+    padding: 0;
     width: 40px;
     height: 40px;
     border-radius: 5px;
     transition: 25ms ease-out;
     background-color: var(--button-color);
+    color: var(--primary-color);
     border: 0;
     cursor: pointer;
+}
+
+.sponsor-button:disabled {
+    color: var(--secondary-color);
 }
 
 .sidebar-social {

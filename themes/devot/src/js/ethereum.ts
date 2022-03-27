@@ -9,7 +9,7 @@ if (typeof anyWindow.ethereum === "undefined") {
     connectMetamask.disabled = true;
 }
 
-var ethereum: any;
+let ethereum: any;
 
 connectMetamask.addEventListener("click", async () => {
     getMetamaskAccount();
@@ -25,8 +25,9 @@ connectMetamask.addEventListener("click", async () => {
                 },
             ],
         })
-        .then((txHash: any) => console.log(txHash))
-        .catch((error: any) => console.error(error));
+        .catch(() => {
+            // TODO: Show error message
+        });
 });
 
 async function getMetamaskAccount() {

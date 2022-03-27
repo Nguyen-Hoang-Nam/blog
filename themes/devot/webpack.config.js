@@ -64,7 +64,7 @@ export default {
 
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "../css/[name].css",
+            filename: "../css/[name].bundle.css",
         }),
         // new BundleAnalyzerPlugin()
     ],

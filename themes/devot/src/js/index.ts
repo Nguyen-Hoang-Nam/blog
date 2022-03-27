@@ -1,7 +1,7 @@
 import "../css/style.css";
 
-const lightMode: string = "☀️";
-const darkMode: string = "🌙";
+const lightMode = "☀️";
+const darkMode = "🌙";
 
 window.addEventListener("DOMContentLoaded", () => {
     const observer = new IntersectionObserver((entries) => {
@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
         observer.observe(section);
     });
 
-    function utterancesTheme(currentMode: String) {
+    function utterancesTheme(currentMode: string) {
         if (document.querySelector(".utterances-frame")) {
             const theme =
                 currentMode === "dark" ? "github-dark" : "github-light";

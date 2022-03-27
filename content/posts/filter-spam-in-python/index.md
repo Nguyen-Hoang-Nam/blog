@@ -76,9 +76,11 @@ Dòng Code này sẽ giúp bạn liên kết Colab và Drive của bạn vì b�
 qua một vài dòng trong dự liệu nha.
 
 ```python
-sms = pd.read_csv('/content/drive/MyDrive/Dev/Spam/spam.csv', encoding='latin-1')
-sms = sms.drop(['Unnamed: 2','Unnamed: 3','Unnamed: 4'],axis=1)
-sms = sms.rename(columns = {'v1':'label','v2':'message'})
+sms = pd.read_csv(
+    "/content/drive/MyDrive/Dev/Spam/spam.csv", encoding="latin-1"
+)
+sms = sms.drop(["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis=1)
+sms = sms.rename(columns={"v1": "label", "v2": "message"})
 sms.head(10)
 ```
 
@@ -110,9 +112,14 @@ cho kết quả tốt.
 
 ```python
 import nltk
-nltk.download('stopwords')
 
-text = [word for word in text.split() if word.lower() not in stopwords.words('english')]
+nltk.download("stopwords")
+
+text = [
+    word
+    for word in text.split()
+    if word.lower() not in stopwords.words("english")
+]
 ```
 
 Trong đoạn code ở trên thì 2 dòng đầu có nhiệm vụ load danh sách Stop Words cho bạn. Một lưu ý nhỏ cho bạn là
@@ -131,7 +138,9 @@ from sklearn.model_selection import train_test_split
 vectorizer = TfidfVectorizer()
 tfidf_features = vectorizer.fit_transform(text_feat)
 
-features_train, features_test, labels_train, labels_test = train_test_split(tfidf_features, labels, test_size=0.3, random_state=111)
+features_train, features_test, labels_train, labels_test = train_test_split(
+    tfidf_features, labels, test_size=0.3, random_state=111
+)
 ```
 
 Chi tiết phương pháp TF-IDF mình nghĩ xứng đáng có một bài viết riêng nền mình sẽ không trình bày ở đây. Trong đoạn

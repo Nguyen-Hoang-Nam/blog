@@ -37,7 +37,7 @@ interface PhantomProvider {
     request: (method: PhantomRequestMethod, params: any) => Promise<unknown>;
 }
 
-var provider: PhantomProvider | undefined;
+let provider: PhantomProvider | undefined;
 
 const connectPhantom = document.getElementById(
     "connect-phantom"
@@ -49,7 +49,7 @@ const getPhantomAccount = async () => {
     try {
         await anyWindow.solana.connect();
     } catch (err) {
-        console.error(err);
+        // TODO: Show error message
     }
 };
 
@@ -72,9 +72,9 @@ const NETWORK = clusterApiUrl("devnet");
 const connection = new Connection(NETWORK);
 
 const createTransferTransaction = async () => {
-    var to = new PublicKey("9ZZoqoTfzMvpzeM719AbDnxdTBGaz2UYK77ZCwb5CQDD");
+    const to = new PublicKey("9ZZoqoTfzMvpzeM719AbDnxdTBGaz2UYK77ZCwb5CQDD");
 
-    var transaction = new Transaction().add(
+    const transaction = new Transaction().add(
         SystemProgram.transfer({
             fromPubkey: provider.publicKey,
             toPubkey: to,
@@ -100,11 +100,13 @@ connectPhantom.addEventListener("click", async () => {
             return;
         }
 
-        let signed = await provider.signTransaction(transaction);
-        let signature = await connection.sendRawTransaction(signed.serialize());
+        const signed = await provider.signTransaction(transaction);
+        const signature = await connection.sendRawTransaction(
+            signed.serialize()
+        );
         await connection.confirmTransaction(signature);
     } catch (err) {
-        console.error(err);
+        // TODO: Show error message
     }
 });
 
@@ -113,7 +115,7 @@ window.onload = () => {
         .then((result) => {
             provider = result;
         })
-        .catch(function (error) {
-            console.error(error);
+        .catch(() => {
+            // TODO: Show error message
         });
 };

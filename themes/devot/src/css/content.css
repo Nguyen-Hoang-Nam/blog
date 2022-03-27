@@ -24,7 +24,7 @@
     color: var(--secondary-color);
 }
 
-.content p:first-of-type::first-letter {
+h2 + p::first-letter {
     font-size: 3.57rem;
     line-height: 1em;
     font-weight: 700;
@@ -33,7 +33,7 @@
     float: left;
 }
 
-h2 + p::first-letter {
+.content p:first-of-type::first-letter {
     font-size: 3.57rem;
     line-height: 1em;
     font-weight: 700;
@@ -62,7 +62,7 @@ h2 + p::first-letter {
 }
 
 .content time {
-    font-family: "Inter", sans-serif;
+    font-family: Inter, sans-serif;
     font-weight: 400;
     color: var(--secondary-color);
 }
@@ -87,7 +87,7 @@ h2 + p::first-letter {
 .content figcaption {
     text-align: center;
     color: var(--secondary-color);
-    font-family: "Lora", serif;
+    font-family: Lora, serif;
 }
 
 .content pre {
@@ -96,4 +96,10 @@ h2 + p::first-letter {
 
 .content a {
     color: var(--link-color);
+}
+
+.anchor-link::before {
+    content: "#";
+    position: absolute;
+    left: -20px;
 }
