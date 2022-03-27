@@ -23,3 +23,8 @@
 .table-of-content nav > ul {
     padding-left: 0;
 }
+
+.toc-line {
+    display: inline-block;
+    padding-bottom: 20px;
+}
