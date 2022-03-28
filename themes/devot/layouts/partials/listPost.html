@@ -1,0 +1,17 @@
+{{ range ( where .Site.RegularPages "Type" "posts" ) }}
+<div class="post">
+    <h3 class="font-sans-serif font-bold post-title">
+        <a class="primary-color post-title-link" href="{{ .RelPermalink }}">
+            {{ .Title }}
+        </a>
+    </h3>
+
+    {{ partial "metadata.html" . }}
+
+    </br></br>
+
+    <a class="primary-color font-serif post-summary" href="{{ .RelPermalink }}">
+        {{ .Summary }}
+    </a>
+</div>
+{{ end }}

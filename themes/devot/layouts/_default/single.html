@@ -1,28 +1,33 @@
 {{ define "main" }}
-<div class="flex main">
-    <div class="flex position-relative main-container">
-        {{- partial "sidebar.html" . -}}
+    <div class="flex main">
+        <div class="flex position-relative main-container">
+            {{- partial "sidebar.html" . -}}
 
-        <div class="font-serif content">
-            <div class="position-relative content-container">
-                <h1>{{ .Title }}</h1>
-                {{ partial "metadata.html" . }}
 
-                <br /><br />
+            <div class="font-serif content">
+                <div class="position-relative content-container">
+                    <h1>{{ .Title }}</h1>
+                    {{ partial "metadata.html" . }}
 
-                {{ .Content }}
+
+                    <br /><br />
+
+                    {{ .Content }}
+                </div>
+
+                <div class="flex content-footer">
+                    {{ partial "tags.html" . }}
+                    {{ partial "social.html" . }}
+                </div>
+
+                <div class="comments-container">
+                    {{ partial "comments.html" . }}
+                </div>
             </div>
 
-            <div class="flex content-footer">
-                {{ partial "tags.html" . }} {{ partial "social.html" . }}
-            </div>
+            {{ partial "tableOfContent.html" . }}
 
-            <div class="comments-container">
-                {{ partial "comments.html" . }}
-            </div>
+            {{ partial "buyMeCoffee.html" . }}
         </div>
-
-        {{ partial "tableOfContent.html" . }}
     </div>
-</div>
 {{ end }}

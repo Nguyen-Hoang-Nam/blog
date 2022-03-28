@@ -1,7 +1,20 @@
-{{ $filePath := print "/content/" .Page.File.Dir }} {{ $img := imageConfig (add
-$filePath (.Destination | safeURL)) }} {{ if .Title }}
+{{ $filePath := print "/content/" .Page.File.Dir }}
+{{ $img := imageConfig (add $filePath (.Destination | safeURL)) }}
+
+
 <figure>
-    <figure>
+    {{ if .Title }}
+        <figure>
+            <img
+                class="lozad"
+                data-src="{{ .Destination | safeURL }}"
+                alt="{{ .Text }}"
+                width="{{ $img.Width }}"
+                height="{{ $img.Height }}"
+            />
+            <figcaption>{{ .Title }}</figcaption>
+        </figure>
+    {{ else }}
         <img
             class="lozad"
             data-src="{{ .Destination | safeURL }}"
@@ -9,15 +22,5 @@ $filePath (.Destination | safeURL)) }} {{ if .Title }}
             width="{{ $img.Width }}"
             height="{{ $img.Height }}"
         />
-        <figcaption>{{ .Title }}</figcaption>
-    </figure>
-    {{ else }}
-    <img
-        class="lozad"
-        data-src="{{ .Destination | safeURL }}"
-        alt="{{ .Text }}"
-        width="{{ $img.Width }}"
-        height="{{ $img.Height }}"
-    />
     {{ end }}
 </figure>

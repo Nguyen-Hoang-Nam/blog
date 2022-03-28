@@ -1,26 +1,14 @@
 {{ define "main" }}
-<div class="flex main">
-    <div class="flex position-relative main-container">
-        {{- partial "sidebar.html" . -}}
-        <div class="content">
-            <div class="content-container">
-                {{ range .Data.Pages }}
-                <div class="post">
-                    <h3 class="font-sans-serif font-bold post-title">
-                        <a class="primary-color post-title-link" href="{{ .Permalink }}">
-                            {{ .Title }}
-                        </a>
-                    </h3>
-                    {{ partial "metadata.html" . }}
-                    </br>
-                    </br>
-                    <a class="primary-color font-serif post-summary" href="{{ .Permalink }}">
-                        {{ .Summary }}
-                    </a>
+    <div class="flex main">
+        <div class="flex position-relative main-container">
+            {{- partial "sidebar.html" . -}}
+            <div class="content">
+                <div class="content-container">
+                    {{ partial "taxonomyPost.html" . }}
                 </div>
-                {{ end }}
             </div>
+
+            {{ partial "buyMeCoffee.html" . }}
         </div>
     </div>
-</div>
 {{ end }}

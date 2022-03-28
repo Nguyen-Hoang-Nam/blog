@@ -1,0 +1,10 @@
+<a
+    href="{{ .Destination | safeURL }}?utm_source=devot&utm_medium=content"
+    {{ with .Title }}title="{{ . }}"{{ end }}
+
+    {{ if strings.HasPrefix .Destination "http" }}
+        target="_blank" rel="noopener"
+    {{ end }}
+>
+    {{ .Text | safeHTML }}
+</a>

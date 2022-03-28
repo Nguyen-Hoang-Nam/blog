@@ -1,8 +1,8 @@
-{{ if gt (len .TableOfContents) 80}}
-<div class="font-sans-serif position-absolute table-of-content">
-    <div class="sticky-table">
-        <h3>Table of contents</h3>
-        {{ .TableOfContents }}
+{{ if gt (len .TableOfContents) 80 }}
+    <div class="font-sans-serif position-absolute table-of-content">
+        <div class="sticky-table">
+            <h3>Table of contents</h3>
+            {{ .TableOfContents }}
+        </div>
     </div>
-</div>
 {{ end }}

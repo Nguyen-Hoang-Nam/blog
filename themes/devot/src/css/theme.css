@@ -1,15 +1,17 @@
 :root {
-    --primary-color: rgb(18, 20, 24);
-    --secondary-color: rgb(108, 111, 114);
-    --link-color: rgb(213, 63, 36);
-    --button-color: rgb(242, 242, 242);
-    --background-color: rgb(255, 255, 255);
+    --primary-color: rgb(18 20 24);
+    --secondary-color: rgb(108 111 114);
+    --link-color: rgb(213 63 36);
+    --button-color: rgb(242 242 242);
+    --background-color: rgb(255 255 255);
+    --opposite-color: rgb(252 252 252);
 }
 
 [data-theme="dark"] {
-    --primary-color: rgb(252, 252, 252);
-    --secondary-color: rgb(191, 194, 201);
-    --link-color: rgb(0, 255, 255);
-    --button-color: rgb(33, 34, 39);
-    --background-color: rgb(18, 20, 24);
+    --primary-color: rgb(252 252 252);
+    --secondary-color: rgb(191 194 201);
+    --link-color: rgb(0 255 255);
+    --button-color: rgb(33 34 39);
+    --background-color: rgb(18 20 24);
+    --opposite-color: rgb(18 20 24);
 }

@@ -1,45 +1,18 @@
 {{ define "main" }}
-<div class="flex main">
-    <div class="flex position-relative main-container">
-        {{- partial "sidebar.html" . -}}
+    <div class="flex main">
+        <div class="flex position-relative main-container">
+            {{- partial "sidebar.html" . -}}
 
-        <div class="content">
-            <div class="content-container">
-                {{ range ( where .Site.RegularPages "Type" "posts" ) }}
-                <div class="post">
-                    <h3 class="font-sans-serif font-bold post-title">
-                        <a class="primary-color post-title-link" href="{{ .RelPermalink }}">
-                            {{ .Title }}
-                        </a>
-                    </h3>
 
-                    {{ partial "metadata.html" . }}
-
-                    </br></br>
-
-                    <a class="primary-color font-serif post-summary" href="{{ .RelPermalink }}">
-                        {{ .Summary }}
-                    </a>
+            <div class="content">
+                <div class="content-container">
+                    {{ partial "listPost.html" . }}
                 </div>
-                {{ end }}
             </div>
-        </div>
 
-        <div class="font-sans-serif position-absolute table-of-content">
-            <div class="sticky-table">
-                {{ $prev := 3000}}
-                {{range where .Site.RegularPages "Section" "posts"}}
-                    {{if .Date}}
-                        {{if gt $prev (.Date.Format "2006")}}
-                            <h3>{{ .Date.Format "2006" }}</h3>
-                        {{end}}
+            {{ partial "archivePost.html" . }}
 
-                        <a class="toc-line" href="{{.Permalink}}">{{.Title}}</a>
-                        {{ $prev = .Date.Format "2006"}}
-                    {{end}}
-                {{end}}
-            </div>
+            {{ partial "buyMeCoffee.html" . }}
         </div>
     </div>
-</div>
 {{ end }}

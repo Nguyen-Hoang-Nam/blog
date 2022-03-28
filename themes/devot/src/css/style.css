@@ -73,6 +73,10 @@
     justify-content: space-between;
 }
 
+.footer-icon {
+    column-gap: 15px;
+}
+
 .footer-icon img {
     display: flex;
     align-items: center;
@@ -115,4 +119,9 @@
     transition: 25ms ease-out;
     padding: 10px 0.75em;
     background-color: var(--button-color);
+}
+
+#bmc-wbtn {
+    right: 30px !important;
+    bottom: 50px !important;
 }

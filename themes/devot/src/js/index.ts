@@ -104,4 +104,51 @@ window.addEventListener("DOMContentLoaded", () => {
         document.documentElement.setAttribute("data-theme", "light");
         localStorage.setItem("mode", lightMode);
     }
+
+    const tabIcon = document.getElementById("tab-icon") as HTMLLinkElement;
+    const tabAppleIcon = document.getElementById(
+        "tab-apple-icon"
+    ) as HTMLLinkElement;
+    if (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+        tabIcon.href = "/images/logo-dark.svg";
+        tabAppleIcon.href = "/images/logo-dark.svg";
+
+        document.getElementsByTagName("head")[0].appendChild(tabIcon);
+        document.getElementsByTagName("head")[0].appendChild(tabAppleIcon);
+    }
 });
+
+document.addEventListener(
+    "copy",
+    (evt) => {
+        evt.clipboardData.setData(
+            "text/plain",
+            "Copying is not allowed on this webpage"
+        );
+
+        evt.preventDefault();
+    },
+    false
+);
+
+const tabIcon = document.getElementById("tab-icon") as HTMLLinkElement;
+const tabAppleIcon = document.getElementById(
+    "tab-apple-icon"
+) as HTMLLinkElement;
+window
+    .matchMedia("(prefers-color-scheme: dark)")
+    .addEventListener("change", (e) => {
+        if (e.matches) {
+            tabIcon.href = "/images/logo-dark.svg";
+            tabAppleIcon.href = "/images/logo-dark.svg";
+        } else {
+            tabIcon.href = "/images/logo-light.svg";
+            tabAppleIcon.href = "/images/logo-light.svg";
+        }
+
+        document.getElementsByTagName("head")[0].appendChild(tabIcon);
+        document.getElementsByTagName("head")[0].appendChild(tabAppleIcon);
+    });

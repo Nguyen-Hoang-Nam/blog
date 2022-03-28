@@ -4,7 +4,8 @@ self.addEventListener("install", function (event) {
         caches.open(cacheName).then(function (cache) {
             return cache.addAll([
                 "/images/avatar.webp",
-                "/images/logo.ico",
+                "/images/logo-light.svg",
+                "/images/logo-dark.svg",
                 "/images/GitHub-Mark-32px.png",
                 "/images/GitHub-Mark-Light-32px.png",
                 "/images/rss-light.png",

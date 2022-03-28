@@ -1,0 +1,16 @@
+<div class="font-sans-serif position-absolute table-of-content">
+    <div class="sticky-table">
+        {{ $prev := 3000 }}
+        {{ range where .Site.RegularPages "Section" "posts" }}
+            {{ if .Date }}
+                {{ if gt $prev (.Date.Format "2006") }}
+                    <h3>{{ .Date.Format "2006" }}</h3>
+                {{ end }}
+
+
+                <a class="toc-line" href="{{ .Permalink }}">{{ .Title }}</a>
+                {{ $prev = .Date.Format "2006" }}
+            {{ end }}
+        {{ end }}
+    </div>
+</div>
