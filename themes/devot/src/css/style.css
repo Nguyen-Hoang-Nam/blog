@@ -1,6 +1,7 @@
 @import "font.css";
 @import "theme.css";
 @import "default.css";
+@import "scrollbar.css";
 @import "utils.css";
 @import "header.css";
 @import "sidebar.css";
@@ -77,10 +78,20 @@
     column-gap: 15px;
 }
 
-.footer-icon img {
+.footer-icon span {
     display: flex;
     align-items: center;
-    height: 20px;
+}
+
+.footer-github-icon {
+    align-items: center;
+}
+
+.footer-github-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--primary-color);
+    stroke: none;
 }
 
 .resp-sharing-button__link,
@@ -93,6 +104,7 @@
     transition: 25ms ease-out;
     padding: 0.5em 0.75em;
     background-color: var(--button-color);
+    cursor: pointer;
 }
 
 .resp-sharing-button__icon svg {

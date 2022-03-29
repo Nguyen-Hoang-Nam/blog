@@ -6,6 +6,13 @@
     }}
 
 
+    <div
+        class="primary-color resp-sharing-button__link"
+        onclick="registerLikes()"
+    >
+        {{ partial "icons/heart.html" . }}
+    </div>
+
     <a
         class="primary-color resp-sharing-button__link"
         href="https://facebook.com/sharer/sharer.php?u={{ $url }}&utm_source=facebook&utm_medium=social-post"

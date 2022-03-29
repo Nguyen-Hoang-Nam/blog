@@ -39,9 +39,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
     const mode = document.getElementById("mode") as HTMLElement;
-    const githubIcon = document.getElementById("github-icon");
-    const githubIcon1 = document.getElementById("github-icon-1");
-    const rss = document.getElementById("rss");
     const chromaTheme = document.getElementById(
         "chroma-theme"
     ) as HTMLLinkElement;
@@ -54,15 +51,6 @@ window.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("mode", darkMode);
 
             utterancesTheme("dark");
-            githubIcon.setAttribute(
-                "src",
-                "/images/GitHub-Mark-Light-32px.png"
-            );
-            githubIcon1.setAttribute(
-                "src",
-                "/images/GitHub-Mark-Light-32px.png"
-            );
-            rss.setAttribute("src", "/images/rss-dark.png");
 
             chromaTheme.href = "/css/syntax-dark.css";
         } else {
@@ -71,9 +59,6 @@ window.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("mode", lightMode);
 
             utterancesTheme("light");
-            githubIcon.setAttribute("src", "/images/GitHub-Mark-32px.png");
-            githubIcon1.setAttribute("src", "/images/GitHub-Mark-32px.png");
-            rss.setAttribute("src", "/images/rss-light.png");
 
             chromaTheme.href = "/css/syntax-light.css";
         }
@@ -87,15 +72,6 @@ window.addEventListener("DOMContentLoaded", () => {
         } else {
             document.documentElement.setAttribute("data-theme", "dark");
             utterancesTheme("light");
-            githubIcon.setAttribute(
-                "src",
-                "/images/GitHub-Mark-Light-32px.png"
-            );
-            githubIcon1.setAttribute(
-                "src",
-                "/images/GitHub-Mark-Light-32px.png"
-            );
-            rss.setAttribute("src", "/images/rss-dark.png");
 
             chromaTheme.href = "/css/syntax-dark.css";
         }
@@ -152,3 +128,35 @@ window
         document.getElementsByTagName("head")[0].appendChild(tabIcon);
         document.getElementsByTagName("head")[0].appendChild(tabAppleIcon);
     });
+
+function fetchLikes(slug) {
+    const data = {
+        slug: slug,
+    };
+    fetch("/.netlify/functions/fetch-likes", {
+        method: "POST",
+        body: JSON.stringify(data),
+    })
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function (data) {
+            //your code
+        });
+}
+
+function registerLikes(slug) {
+    const data = {
+        slug: slug,
+    };
+    fetch("/.netlify/functions/register-likes", {
+        method: "POST",
+        body: JSON.stringify(data),
+    })
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function (data) {
+            //your code
+        });
+}

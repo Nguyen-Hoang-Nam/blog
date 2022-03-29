@@ -14,7 +14,14 @@
 
 .sidebar-rss {
     position: absolute;
-    right: -5px;
+    right: -6px;
+}
+
+.sidebar-rss svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--primary-color);
+    stroke: none;
 }
 
 .sidebar-avatar {
@@ -46,7 +53,6 @@
 
 .sidebar-title a {
     color: var(--primary-color);
-    line-height: 32px;
 }
 
 .sidebar-language {

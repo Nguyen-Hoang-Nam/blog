@@ -8,6 +8,16 @@
     padding: 0 4px;
 }
 
+.content-metadata {
+    column-gap: 20px;
+}
+
+.content-reading {
+    font-weight: 400;
+    color: var(--secondary-color);
+    font-size: 16px;
+}
+
 .content-footer {
     column-gap: 40px;
     margin-top: 50px;

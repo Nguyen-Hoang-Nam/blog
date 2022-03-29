@@ -1,6 +1,13 @@
 {{ $dateTime := .PublishDate.Format "2006-01-02" }}
 {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
 
-<time datetime="{{ $dateTime }}">
-    {{ .PublishDate.Format $dateFormat }}
-</time>
+
+<div class="flex content-metadata">
+    <time datetime="{{ $dateTime }}">
+        {{ .PublishDate.Format $dateFormat }}
+    </time>
+
+    <div class="content-reading font-sans-serif">
+        {{ math.Round (div (countwords .Content) 220.0) }} min read
+    </div>
+</div>
