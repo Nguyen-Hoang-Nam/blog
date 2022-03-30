@@ -90,9 +90,14 @@
     border-radius: 5px;
     transition: 25ms ease-out;
     background-color: var(--button-color);
-    color: var(--primary-color);
     border: 0;
     cursor: pointer;
+}
+
+.sponsor-button svg {
+    fill: var(--primary-color);
+    width: 30px;
+    height: 30px;
 }
 
 .sponsor-button:disabled {
