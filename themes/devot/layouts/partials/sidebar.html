@@ -82,15 +82,27 @@
         <div class="sponsor">
             <p class="text-align-center">Buy me a coffee</p>
             <div class="flex sponsor-container">
-                <button class="sponsor-button" id="connect-metamask">
+                <button
+                    class="sponsor-button position-relative"
+                    id="connect-metamask"
+                    aria-label="Ethereum sponsor"
+                >
                     {{ partial "icons/ethereum.html" . }}
                 </button>
 
-                <button class="sponsor-button" id="connect-phantom">
+                <button
+                    class="sponsor-button position-relative"
+                    id="connect-phantom"
+                    aria-label="Solana sponsor"
+                >
                     {{ partial "icons/solana.html" . }}
                 </button>
 
-                <button class="sponsor-button" id="connect-polygon">
+                <button
+                    class="sponsor-button position-relative"
+                    id="connect-polygon"
+                    aria-label="Polygon sponsor"
+                >
                     {{ partial "icons/polygon.html" . }}
                 </button>
             </div>

@@ -92,16 +92,29 @@
     background-color: var(--button-color);
     border: 0;
     cursor: pointer;
+    z-index: 1;
 }
 
 .sponsor-button svg {
-    fill: var(--primary-color);
+    fill: var(--button-color);
     width: 30px;
     height: 30px;
+    position: relative;
+    z-index: 3;
 }
 
 .sponsor-button:disabled {
     color: var(--secondary-color);
+}
+
+.sponsor-button-mask {
+    top: 6px;
+    right: 6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    z-index: 2;
 }
 
 .sidebar-social {
