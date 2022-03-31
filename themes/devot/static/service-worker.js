@@ -6,10 +6,6 @@ self.addEventListener("install", function (event) {
                 "/images/avatar.webp",
                 "/images/logo-light.svg",
                 "/images/logo-dark.svg",
-                "/images/GitHub-Mark-32px.png",
-                "/images/GitHub-Mark-Light-32px.png",
-                "/images/rss-light.png",
-                "/images/rss-dark.png",
             ]);
         })
     );
