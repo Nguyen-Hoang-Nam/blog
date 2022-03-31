@@ -1,6 +1,8 @@
 <h{{ .Level }} id="{{ .Anchor | safeURL }}">
     {{ if or (eq .Level 2) (eq .Level 3)}}
-        <a href="#{{ .Anchor | safeURL }}" class="anchor-link"></a>
+        <a href="#{{ .Anchor | safeURL }}" class="anchor-link"
+            aria-label="{{ .Text | safeHTML }}"
+            ></a>
         {{ .Text | safeHTML }}
     {{ else }}
         {{ .Text | safeHTML }}

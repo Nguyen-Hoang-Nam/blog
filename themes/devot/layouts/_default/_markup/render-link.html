@@ -1,5 +1,6 @@
 <a
     href="{{ .Destination | safeURL }}?utm_source=devot&utm_medium=content"
+    aria-label="{{ .Text | safeHTML }}"
     {{ with .Title }}title="{{ . }}"{{ end }}
 
     {{ if strings.HasPrefix .Destination "http" }}
