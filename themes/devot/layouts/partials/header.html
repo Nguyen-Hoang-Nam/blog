@@ -1,36 +1,45 @@
 <div class="header">
-    {{ $imagePath := "/images/cover.webp" }} {{ if .IsPage }} {{ $imagePath =
-    .Params.image }} {{ end }} {{ $image := .Resources.GetMatch $imagePath }}
+    {{ $imagePath := "/images/cover" }}
+    {{ if .IsPage }}
+        {{ $imagePath = "cover" }}
+    {{ end }}
 
-    <img
-        data-src="{{ $imagePath }}"
-        id="header-img"
+    {{ $image := .Resources.GetMatch $imagePath }}
+
+
+    <picture
         class="lozad header-img"
-        data-alt="Profile"
-    />
+        id="header-img"
+        data-iesrc="{{ $imagePath }}.jpeg"
+        data-alt="Banner"
+    >
+        <source srcset="{{ $imagePath }}.avif" type="image/avif" />
+        <source srcset="{{ $imagePath }}.webp" type="image/webp" />
+        <source srcset="{{ $imagePath }}.jpeg" />
+    </picture>
 </div>
 
 {{ if .IsPage }}
-<p
-    class="text-align-center font-serif font-normal secondary-color header-credit"
->
-    Photo by
-    <a href="{{ .Params.creditAuthorLink }}">{{ .Params.creditAuthor }}</a>
-    on <a href="{{ .Params.creditUnsplash }}">Unsplash</a>
-</p>
+    <p
+        class="text-align-center font-serif font-normal secondary-color header-credit"
+    >
+        Photo by
+        <a href="{{ .Params.creditAuthorLink }}">{{ .Params.creditAuthor }}</a>
+        on <a href="{{ .Params.creditUnsplash }}">Unsplash</a>
+    </p>
 {{ else }}
-<p
-    class="text-align-center font-serif font-normal secondary-color header-credit"
->
-    Photo by
-    <a
-        href="https://unsplash.com/@hportillo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-        >Humberto Portillo</a
+    <p
+        class="text-align-center font-serif font-normal secondary-color header-credit"
     >
-    on
-    <a
-        href="https://unsplash.com/t/nature?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-        >Unsplash</a
-    >
-</p>
+        Photo by
+        <a
+            href="https://unsplash.com/@hportillo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            >Humberto Portillo</a
+        >
+        on
+        <a
+            href="https://unsplash.com/t/nature?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+            >Unsplash</a
+        >
+    </p>
 {{ end }}

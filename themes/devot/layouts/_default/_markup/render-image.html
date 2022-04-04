@@ -1,26 +1,36 @@
 {{ $filePath := print "/content/" .Page.File.Dir }}
-{{ $img := imageConfig (add $filePath (.Destination | safeURL)) }}
+{{ $imagePath := (.Destination | safeURL) }}
+{{ $mainPath := add (.Destination | safeURL) ".jpeg" }}
+{{ $img := imageConfig (add $filePath $mainPath) }}
 
 
 <figure>
     {{ if .Title }}
         <figure>
-            <img
+            <picture
                 class="lozad"
-                data-src="{{ .Destination | safeURL }}"
-                alt="{{ .Text }}"
+                data-iesrc="{{ $imagePath }}.jpeg"
+                data-alt="{{ .Text }}"
                 width="{{ $img.Width }}"
                 height="{{ $img.Height }}"
-            />
+            >
+                <source srcset="{{ $imagePath }}.avif" type="image/avif" />
+                <source srcset="{{ $imagePath }}.webp" type="image/webp" />
+                <source srcset="{{ $imagePath }}.jpeg" />
+            </picture>
             <figcaption>{{ .Title }}</figcaption>
         </figure>
     {{ else }}
-        <img
+        <picture
             class="lozad"
-            data-src="{{ .Destination | safeURL }}"
-            alt="{{ .Text }}"
+            data-iesrc="{{ $imagePath }}.jpeg"
+            data-alt="{{ .Text }}"
             width="{{ $img.Width }}"
             height="{{ $img.Height }}"
-        />
+        >
+            <source srcset="{{ $imagePath }}.avif" type="image/avif" />
+            <source srcset="{{ $imagePath }}.webp" type="image/webp" />
+            <source srcset="{{ $imagePath }}.jpeg" />
+        </picture>
     {{ end }}
 </figure>

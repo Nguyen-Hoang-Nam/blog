@@ -7,7 +7,6 @@ Nếu bạn đã sẵn sàng thì chúng ta bắt đầu nào."
 date: 2022-03-06T12:51:24+07:00
 draft: false
 tags: ["microservices"]
-image: "cover.webp"
 creditAuthor: "JOHN TOWNER"
 creditAuthorLink: "https://unsplash.com/@heytowner?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 creditUnsplash: "https://unsplash.com/s/photos/forest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"

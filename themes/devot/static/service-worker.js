@@ -4,9 +4,15 @@ self.addEventListener("install", function (event) {
         caches.open(cacheName).then(function (cache) {
             return cache.addAll([
                 "/images/avatar.webp",
+                "/images/avatar.jpeg",
+                "/images/avatar.avif",
                 "/images/cover.webp",
+                "/images/cover.jpeg",
+                "/images/cover.avif",
                 "/images/logo-light.svg",
                 "/images/logo-dark.svg",
+                "/images/logo.png",
+                "/images/logo-512.png",
             ]);
         })
     );

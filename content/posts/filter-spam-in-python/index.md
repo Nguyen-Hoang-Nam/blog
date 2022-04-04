@@ -6,7 +6,6 @@ bạn muốn tìm hiểu về xử lý ngôn ngữ tự nhiên (NLP)."
 date: 2022-03-10T10:00:00+07:00
 draft: false
 tags: ["Spam", "Python", "ML", "NLP"]
-image: "cover.webp"
 creditAuthor: "James Kern"
 creditAuthorLink: "https://unsplash.com/@jamesrkern?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 creditUnsplash: "https://unsplash.com/s/photos/spam?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
@@ -37,7 +36,7 @@ nhập dữ liệu và đánh nhãn nha.
 
 Để thực hiện việc phân loại dữ liệu dạng Text thì xử lý ngôn ngữ tự nhiên thường theo một quy trình như sau:
 
-![Diagram 1](diagram1.png "Quy trình xử lý ngôn ngữ tự nhiên đơn giản")
+![Diagram 1](diagram1 "Quy trình xử lý ngôn ngữ tự nhiên đơn giản")
 
 Cùng mình đi qua cái quy trình này xíu nha. Thu thập dữ liệu, đây là bước tiên quyết mà bạn cần phải làm, lý do là vì
 dữ liệu là đầu vào của việc huấn luyện. Đánh nhãn, đây cũng là một bước cực kì quan trọng, do dữ liệu bạn thu nhập
@@ -84,7 +83,7 @@ sms = sms.rename(columns={"v1": "label", "v2": "message"})
 sms.head(10)
 ```
 
-![Table 1](table1.png "10 dòng đầu tiên của bộ dữ liệu")
+![Table 1](table1 "10 dòng đầu tiên của bộ dữ liệu")
 
 ### Tiền xử lý
 
