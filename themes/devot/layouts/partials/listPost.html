@@ -13,6 +13,10 @@
     <a class="primary-color font-serif post-summary" href="{{ .RelPermalink }}">
         {{ .Summary }}
     </a>
+
+
+    {{ partial "tags.html" . }}
+
 </div>
 {{ end }}
 
