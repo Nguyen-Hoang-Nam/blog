@@ -40,7 +40,7 @@ này cũng đóng góp cho cộng đồng nhiều những Framework để implem
 Họ còn thuyết trình về hệ thống đó nữa, và mình recommend bạn nên xem qua nó để hình dung sơ qua
 vấn đề mà Netflix đã giải quyết với kiến trúc Microservervice.
 
-{{< youtube CZ3wIuvmHeM >}}
+{{< youtube id="CZ3wIuvmHeM" >}}
 
 Thì như ta thấy các Service trong kiến trúc Microservices này độc lập với nhau, chúng gọi nhau qua các
 API là các protocol như HTTP, GRPC, Thrift, Websocket hay những cơ chế Pub/Sub. Các Service này cũng
