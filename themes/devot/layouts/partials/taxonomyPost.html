@@ -13,6 +13,9 @@
     <a class="primary-color font-serif post-summary" href="{{ .Permalink }}">
         {{ .Summary }}
     </a>
+
+
+    {{ partial "tags.html" . }}
 </div>
 {{ end }}
 
