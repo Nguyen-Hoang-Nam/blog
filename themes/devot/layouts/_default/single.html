@@ -15,19 +15,23 @@
                     {{ .Content }}
                 </div>
 
-                <div class="flex content-footer">
-                    {{ partial "tags.html" . }}
-                    {{ partial "social.html" . }}
-                </div>
+                {{ if .Params.isPost }}
+                    <div class="flex content-footer">
+                        {{ partial "tags.html" . }}
+                        {{ partial "social.html" . }}
+                    </div>
 
-                <div class="comments-container">
-                    {{ partial "comments.html" . }}
-                </div>
+                    <div class="comments-container">
+                        {{ partial "comments.html" . }}
+                    </div>
+                {{ end }}
             </div>
 
-            {{ partial "tableOfContent.html" . }}
+            {{ if .Params.isPost }}
+                {{ partial "tableOfContent.html" . }}
 
-            {{ partial "buyMeCoffee.html" . }}
+                {{ partial "buyMeCoffee.html" . }}
+            {{ end }}
         </div>
     </div>
 {{ end }}

@@ -6,6 +6,7 @@ tags: ["microservices"]
 creditAuthor: "JOHN TOWNER"
 creditAuthorLink: "https://unsplash.com/@heytowner?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 creditUnsplash: "https://unsplash.com/s/photos/forest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+isPost: true
 ---
 
 Microservices seems to be not a new term anymore.

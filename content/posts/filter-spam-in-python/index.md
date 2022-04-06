@@ -9,6 +9,7 @@ tags: ["Spam", "Python", "ML", "NLP"]
 creditAuthor: "James Kern"
 creditAuthorLink: "https://unsplash.com/@jamesrkern?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 creditUnsplash: "https://unsplash.com/s/photos/spam?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+isPost: true
 ---
 
 "Bạn vừa trúng một chiếc IPhone", "Ban là người may mắn thứ 101" những câu nói này nghe quen với bạn chứ. Trong bài viết

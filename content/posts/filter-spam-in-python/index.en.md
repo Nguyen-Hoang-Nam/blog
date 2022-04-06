@@ -7,4 +7,5 @@ tags: ["Spam", "Python", "ML", "NLP"]
 creditAuthor: "James Kern"
 creditAuthorLink: "https://unsplash.com/@jamesrkern?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
 creditUnsplash: "https://unsplash.com/s/photos/spam?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+isPost: true
 ---

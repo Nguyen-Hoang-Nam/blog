@@ -137,11 +137,3 @@
     right: 30px !important;
     bottom: 50px !important;
 }
-
-.title-404 {
-    font-size: 200px;
-}
-
-.link-404 a {
-    color: var(--link-color);
-}
