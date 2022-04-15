@@ -5,7 +5,7 @@
             {{ $imagePath = "cover" }}
         {{ end }}
 
-        {{ if .Params.isPost == false }}
+        {{ if eq .Params.isPost false }}
             {{ $imagePath = "https://devot.netlify.app/404/cover" }}
         {{ end }}
 
