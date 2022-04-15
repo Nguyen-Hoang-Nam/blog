@@ -1,4 +1,4 @@
-import { faunadb } from "faunadb";
+import faunadb from "faunadb";
 
 exports.handler = async (event) => {
     const contxt = process.env.CONTEXT;

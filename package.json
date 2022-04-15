@@ -1,6 +1,7 @@
 {
-  "dependencies": {
-    "faunadb": "^4.5.2",
-    "save": "^2.4.0"
-  }
+    "dependencies": {
+        "faunadb": "^4.5.2",
+        "save": "^2.4.0"
+    },
+    "type": "module"
 }

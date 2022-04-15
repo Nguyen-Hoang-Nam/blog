@@ -164,4 +164,6 @@ const getCurrentPost = () => {
 };
 
 const likeButton = document.getElementById("like-button");
-likeButton.addEventListener("click", () => registerLikes(getCurrentPost()));
+if (likeButton) {
+    likeButton.addEventListener("click", () => registerLikes(getCurrentPost()));
+}
