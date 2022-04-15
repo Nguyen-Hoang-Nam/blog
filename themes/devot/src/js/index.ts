@@ -160,7 +160,13 @@ const getCurrentPost = () => {
     const pathName = window.location.pathname;
     const pathElement = pathName.split("/");
 
-    return pathElement[pathElement.length - 1];
+    const length = pathElement.length;
+    const lastElement = pathElement[length - 1];
+    if (lastElement !== "") {
+        return lastElement;
+    }
+
+    return pathElement[length - 2];
 };
 
 const likeButton = document.getElementById("like-button");
