@@ -1,14 +1,17 @@
-const faunadb = require("faunadb");
+import { faunadb } from "faunadb";
+
 exports.handler = async (event) => {
     const contxt = process.env.CONTEXT;
     const q = faunadb.query;
     const client = new faunadb.Client({
         secret: process.env.FAUNA_API_KEY,
     });
+
     const data = JSON.parse(event.body);
     const isStaging = contxt === "branch-deploy" ? true : false;
     const index = isStaging ? "collection_stage" : "collection_prod";
     const db = isStaging ? "index_stage" : "index_prod";
+
     const slug = data.slug;
     if (!slug) {
         return {
@@ -18,6 +21,7 @@ exports.handler = async (event) => {
             }),
         };
     }
+
     const doesDocExist = await client.query(
         q.Exists(q.Match(q.Index(index), slug))
     );
@@ -29,6 +33,7 @@ exports.handler = async (event) => {
             })
         );
     }
+
     const document = await client.query(q.Get(q.Match(q.Index(index), slug)));
     await client.query(
         q.Update(document.ref, {
@@ -37,9 +42,11 @@ exports.handler = async (event) => {
             },
         })
     );
+
     const updatedDocument = await client.query(
         q.Get(q.Match(q.Index(index), slug))
     );
+
     return {
         statusCode: 200,
         body: JSON.stringify({

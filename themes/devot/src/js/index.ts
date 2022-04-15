@@ -129,34 +129,39 @@ window
         document.getElementsByTagName("head")[0].appendChild(tabAppleIcon);
     });
 
-function fetchLikes(slug) {
-    const data = {
-        slug: slug,
-    };
-    fetch("/.netlify/functions/fetch-likes", {
-        method: "POST",
-        body: JSON.stringify(data),
-    })
-        .then(function (res) {
-            return res.json();
-        })
-        .then(function (data) {
-            //your code
-        });
-}
+// function fetchLikes(slug: string) {
+//     const data = {
+//         slug: slug,
+//     };
 
-function registerLikes(slug) {
+//     fetch("/.netlify/functions/fetch-likes", {
+//         method: "POST",
+//         body: JSON.stringify(data),
+//     })
+//         .then(function (res) {
+//             return res.json();
+//         })
+//         .then(function (data) {
+//         });
+// }
+
+function registerLikes(slug: string) {
     const data = {
         slug: slug,
     };
+
     fetch("/.netlify/functions/register-likes", {
         method: "POST",
         body: JSON.stringify(data),
-    })
-        .then(function (res) {
-            return res.json();
-        })
-        .then(function (data) {
-            //your code
-        });
+    });
 }
+
+const getCurrentPost = () => {
+    const pathName = window.location.pathname;
+    const pathElement = pathName.split("/");
+
+    return pathElement[pathElement.length - 1];
+};
+
+const likeButton = document.getElementById("like-button");
+likeButton.addEventListener("click", () => registerLikes(getCurrentPost()));

@@ -5,6 +5,10 @@
             {{ $imagePath = "cover" }}
         {{ end }}
 
+        {{ if .Params.isPost == false }}
+            {{ $imagePath = "https://devot.netlify.app/404/cover" }}
+        {{ end }}
+
         {{ $image := .Resources.GetMatch $imagePath }}
 
 
