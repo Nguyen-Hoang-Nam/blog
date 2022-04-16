@@ -6,12 +6,12 @@
     }}
 
 
-    <div class="primary-color resp-sharing-button__link" id="like-button">
+    <div class="primary-color resp-sharing-button-link" id="like-button">
         {{ partial "icons/heart.html" . }}
     </div>
 
     <a
-        class="primary-color resp-sharing-button__link"
+        class="primary-color resp-sharing-button-link"
         href="https://facebook.com/sharer/sharer.php?u={{ $url }}&utm_source=facebook&utm_medium=social-post"
         target="_blank"
         rel="noopener"
@@ -21,7 +21,7 @@
     </a>
 
     <a
-        class="primary-color resp-sharing-button__link"
+        class="primary-color resp-sharing-button-link"
         href="https://twitter.com/intent/tweet/?url={{ $url }}&utm_source=twitter&utm_medium=social-post&text={{ $title }}&via={{ with .Site.Social.twitter }}
             {{ . }}
         {{ end }}"
@@ -33,7 +33,7 @@
     </a>
 
     <a
-        class="primary-color resp-sharing-button__link"
+        class="primary-color resp-sharing-button-link"
         href="mailto:?subject=Check%20out%20{{ $title }}.&body={{ $body }}"
         target="_self"
         rel="noopener"
@@ -43,7 +43,7 @@
     </a>
 
     <a
-        class="primary-color resp-sharing-button__link"
+        class="primary-color resp-sharing-button-link"
         href="https://reddit.com/submit/?url={{ $url }};resubmit=true&amp;title={{ $title }}&utm_source=reddit&utm_medium=social-post"
         target="_blank"
         rel="noopener"

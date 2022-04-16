@@ -3,7 +3,7 @@ import "../css/style.css";
 const lightMode = "☀️";
 const darkMode = "🌙";
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async () => {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             const id = entry.target.getAttribute("id");
@@ -95,6 +95,12 @@ window.addEventListener("DOMContentLoaded", () => {
         document.getElementsByTagName("head")[0].appendChild(tabIcon);
         document.getElementsByTagName("head")[0].appendChild(tabAppleIcon);
     }
+
+    const alertAdblock = document.getElementById("alert-adblock");
+    const isAdblock = await checkForAdBlocker();
+    if (isAdblock) {
+        alertAdblock.classList.remove("disable");
+    }
 });
 
 document.addEventListener(
@@ -172,4 +178,35 @@ const getCurrentPost = () => {
 const likeButton = document.getElementById("like-button");
 if (likeButton) {
     likeButton.addEventListener("click", () => registerLikes(getCurrentPost()));
+}
+
+async function checkForAdBlocker() {
+    let Blocked: boolean;
+
+    async function Request() {
+        try {
+            return fetch(
+                "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+                {
+                    method: "HEAD",
+                    mode: "no-cors",
+                }
+            )
+                .then(function () {
+                    // There is no AdBlocker
+                    Blocked = false;
+                    return Blocked;
+                })
+                .catch(function () {
+                    // Failed, Because of an AdBlocker
+                    Blocked = true;
+                    return Blocked;
+                });
+        } catch (error) {
+            Blocked = true;
+            return Blocked;
+        }
+    }
+
+    return Blocked !== undefined ? Blocked : await Request();
 }
