@@ -134,6 +134,8 @@
 }
 
 #bmc-wbtn {
-    right: 30px !important;
+    right: 104px !important;
     bottom: 50px !important;
+    width: 60px !important;
+    height: 60px !important;
 }
