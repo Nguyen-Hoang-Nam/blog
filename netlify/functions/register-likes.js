@@ -1,17 +1,16 @@
 import faunadb from "faunadb";
 
 exports.handler = async (event) => {
-    const contxt = process.env.CONTEXT;
     const q = faunadb.query;
     const client = new faunadb.Client({
         secret: process.env.FAUNA_API_KEY,
+        domain: "db.us.fauna.com",
     });
 
-    const data = JSON.parse(event.body);
-    const isStaging = contxt === "branch-deploy" ? true : false;
-    const index = isStaging ? "collection_stage" : "collection_prod";
-    const db = isStaging ? "index_stage" : "index_prod";
+    const index = "likes_by_slug";
+    const db = "likes";
 
+    const data = JSON.parse(event.body);
     const slug = data.slug;
     if (!slug) {
         return {
