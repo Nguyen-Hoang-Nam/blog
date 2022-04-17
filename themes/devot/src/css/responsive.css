@@ -4,6 +4,12 @@
     }
 }
 
+@media only screen and (max-width: 1360px) {
+    #bmc-wbtn {
+        display: none !important;
+    }
+}
+
 @media only screen and (max-width: 1000px) {
     .main-container {
         justify-content: center;
