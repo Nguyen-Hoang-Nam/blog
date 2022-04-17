@@ -55,7 +55,6 @@ const getPhantomAccount = async () => {
 
 const getProvider = async (): Promise<PhantomProvider | undefined> => {
     if ("solana" in window) {
-        const anyWindow: any = window;
         const provider = anyWindow.solana;
 
         if (provider.isPhantom) {

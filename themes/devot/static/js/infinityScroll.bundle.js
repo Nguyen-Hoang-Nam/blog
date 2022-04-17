@@ -1,0 +1,2 @@
+(self.webpackChunk=self.webpackChunk||[]).push([[310],{6194:()=>{var e=2,n=!1,t=document.documentElement.scrollHeight,o=document.getElementById("list-contents");window.addEventListener("scroll",(function(){o&&window.scrollY+window.innerHeight>=t&&(n||fetch("page/".concat(e)).then((function(c){c.ok?c.text().then((function(n){(new DOMParser).parseFromString(n,"text/html").querySelectorAll(".post").forEach((function(e){o.appendChild(e)})),e++,t=document.documentElement.scrollHeight})):n=!0})))}))}},e=>{var n;n=6194,e(e.s=n)}]);
+//# sourceMappingURL=infinityScroll.bundle.js.map

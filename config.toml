@@ -18,6 +18,9 @@ pygmentsUseClasses = true
         mediaType = "application/rss+xml"
         baseName = "feed"
 
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+
 [menu]
     [[menu.main]]
         name = "Posts"

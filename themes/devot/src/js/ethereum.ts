@@ -4,8 +4,7 @@ const connectMetamask = document.getElementById(
 
 let accounts = [];
 
-const anyWindow: any = window;
-if (typeof anyWindow.ethereum === "undefined") {
+if (typeof (window as any).ethereum === "undefined") {
     connectMetamask.disabled = true;
 }
 

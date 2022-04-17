@@ -1,4 +1,4 @@
-{{ range ( where .Site.RegularPages "Type" "posts" ) }}
+{{ range (.Paginate ( where .Site.RegularPages "Type" "posts" )).Pages }}
 <div class="post">
     <h3 class="font-sans-serif font-bold post-title">
         <a class="primary-color post-title-link" href="{{ .RelPermalink }}">

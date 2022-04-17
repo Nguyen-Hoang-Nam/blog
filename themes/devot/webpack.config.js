@@ -11,6 +11,7 @@ export default {
         solana: path.resolve("src", "js", "solana.ts"),
         ethereum: path.resolve("src", "js", "ethereum.ts"),
         lazyLoad: path.resolve("src", "js", "lazyLoad.ts"),
+        infinityScroll: path.resolve("src", "js", "infinityScroll.ts"),
     },
 
     devtool: "source-map",
@@ -59,6 +60,7 @@ export default {
                     chunks: "all",
                 },
             },
+            chunks: "all",
         },
     },
 

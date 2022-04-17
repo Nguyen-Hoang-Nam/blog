@@ -7,4 +7,5 @@ const lazyLoadImage = lozad(".lozad", {
         }
     },
 });
+
 lazyLoadImage.observe();
