@@ -129,4 +129,5 @@
 
 .sidebar-alert-adblock {
     margin-top: 40px;
+    color: var(--primary-color);
 }

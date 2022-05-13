@@ -18,6 +18,7 @@
 
 .table-of-content ul {
     line-height: 32.3px;
+    list-style-type: none;
 }
 
 .table-of-content nav > ul {

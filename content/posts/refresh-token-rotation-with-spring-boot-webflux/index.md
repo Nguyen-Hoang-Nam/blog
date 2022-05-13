@@ -89,7 +89,7 @@ Trong phần một của bài viết này mình đã trình bày phần lý thuy
 
 ## Tài liệu tham khảo
 
-- [1] [https://datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519)
-- [2] [https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
-- [3] [https://www.pingidentity.com/en/resources/blog/posts/2021/refresh-token-rotation-spa.html](https://www.pingidentity.com/en/resources/blog/posts/2021/refresh-token-rotation-spa.html)
-- [4] [https://levelup.gitconnected.com/secure-jwts-with-backend-for-frontend-9b7611ad2afb](https://levelup.gitconnected.com/secure-jwts-with-backend-for-frontend-9b7611ad2afb)
+[1] [https://datatracker.ietf.org/doc/html/rfc7519](https://datatracker.ietf.org/doc/html/rfc7519)
+[2] [https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/](https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/)
+[3] [https://www.pingidentity.com/en/resources/blog/posts/2021/refresh-token-rotation-spa.html](https://www.pingidentity.com/en/resources/blog/posts/2021/refresh-token-rotation-spa.html)
+[4] [https://levelup.gitconnected.com/secure-jwts-with-backend-for-frontend-9b7611ad2afb](https://levelup.gitconnected.com/secure-jwts-with-backend-for-frontend-9b7611ad2afb)
